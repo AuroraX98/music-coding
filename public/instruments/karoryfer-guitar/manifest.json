@@ -1,0 +1,103 @@
+{
+  "library": "Karoryfer Black And Green Guitars",
+  "creator": "Karoryfer Samples and contributors",
+  "repository": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars",
+  "commit": "b3b3249d37dc977a1a297bd2dc053e6d9b6b805c",
+  "license": "CC0-1.0",
+  "modifications": "Original WAV bytes; renamed locally. Selected recordings only, one playing strength and take per note.",
+  "instruments": [
+    {
+      "id": "karoryfer_guitar_black",
+      "name": "Warm hollowbody guitar",
+      "category": "guitar",
+      "previewNote": "C3",
+      "exampleNotes": "C3 E3 G3 C4",
+      "samples": [
+        {
+          "filenameNote": "E3",
+          "rootNote": "E2",
+          "file": "karoryfer_guitar_black/E3.wav",
+          "sourcePath": "Samples/black/ord/twang_e3_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/black/ord/twang_e3_mf_rr1.wav",
+          "bytes": 551994,
+          "sha256": "822b7dd97e6595bddf5e968b1052d807ad0137a01ccd3dd1a60bd987810d3125"
+        },
+        {
+          "filenameNote": "C4",
+          "rootNote": "C3",
+          "file": "karoryfer_guitar_black/C4.wav",
+          "sourcePath": "Samples/black/ord/twang_c4_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/black/ord/twang_c4_mf_rr1.wav",
+          "bytes": 397554,
+          "sha256": "095fc01bcb6adb8f8c7b3b006f7b2739c4f1d5c2f294cc9adb697999a3887c2c"
+        },
+        {
+          "filenameNote": "G4",
+          "rootNote": "G3",
+          "file": "karoryfer_guitar_black/G4.wav",
+          "sourcePath": "Samples/black/ord/twang_g4_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/black/ord/twang_g4_mf_rr1.wav",
+          "bytes": 434880,
+          "sha256": "922ffabb48b463ac56780f9d14c8f9b0ee132e5f906e8d6c69832d2b944a13d1"
+        },
+        {
+          "filenameNote": "C5",
+          "rootNote": "C4",
+          "file": "karoryfer_guitar_black/C5.wav",
+          "sourcePath": "Samples/black/ord/twang_c5_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/black/ord/twang_c5_mf_rr1.wav",
+          "bytes": 433842,
+          "sha256": "5e56976caf93d92cfdb827fee46b35f8479632dca9a64db7a615a5c025ad71d5"
+        }
+      ],
+      "description": "A second electric guitar with a warm, rounded pluck. Compare both guitars using the same notes."
+    },
+    {
+      "id": "karoryfer_guitar",
+      "name": "Clean hollowbody guitar",
+      "category": "guitar",
+      "previewNote": "C3",
+      "exampleNotes": "C3 E3 G3 C4",
+      "samples": [
+        {
+          "filenameNote": "E3",
+          "rootNote": "E2",
+          "file": "karoryfer_guitar/E3.wav",
+          "sourcePath": "Samples/green/ord/twang_e3_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/ord/twang_e3_mf_rr1.wav",
+          "bytes": 637898,
+          "sha256": "a839c8a67e29ab9c3c5ac9da52af4ee62f0ce721262c28772720223b8e7eb249"
+        },
+        {
+          "filenameNote": "C4",
+          "rootNote": "C3",
+          "file": "karoryfer_guitar/C4.wav",
+          "sourcePath": "Samples/green/ord/twang_c4_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/ord/twang_c4_mf_rr1.wav",
+          "bytes": 628568,
+          "sha256": "4f425d4a926f4146504d848f0f6a01b79fae5784adf185bf5948a1724902998e"
+        },
+        {
+          "filenameNote": "G4",
+          "rootNote": "G3",
+          "file": "karoryfer_guitar/G4.wav",
+          "sourcePath": "Samples/green/ord/twang_g4_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/ord/twang_g4_mf_rr1.wav",
+          "bytes": 759152,
+          "sha256": "5281bb39ee797565282c4f71d670448c07ca0c430a76b7c6380c0ce524b44f11"
+        },
+        {
+          "filenameNote": "C5",
+          "rootNote": "C4",
+          "file": "karoryfer_guitar/C5.wav",
+          "sourcePath": "Samples/green/ord/twang_c5_mf_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.black-and-green-guitars/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/ord/twang_c5_mf_rr1.wav",
+          "bytes": 642674,
+          "sha256": "8bc3ab1361d13b1bf6e361dcfb7c493f6b96b9f065721e45275959a1e12f8658"
+        }
+      ],
+      "description": "A clean electric guitar with a bright twang. Try a melody or play chord notes one at a time."
+    }
+  ],
+  "totalBytes": 4486562
+}

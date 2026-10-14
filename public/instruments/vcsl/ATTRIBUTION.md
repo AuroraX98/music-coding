@@ -10,8 +10,8 @@ License: CC0 1.0 Universal. The upstream README explicitly permits use in softwa
 
 The WAV files are unchanged original bytes, renamed into short local paths. This is a selected starter collection, not the whole VCSL library. Source paths, download URLs, file hashes, byte sizes, and playable root notes are in manifest.json.
 
-Upstream file names use C3 for middle C. App roots use scientific pitch notation (middle C = C4 = MIDI 60). All sample roots below add one octave to the filename. Frequency checks confirm this convention for this subset.
+Upstream file names use C3 for middle C. App roots use scientific pitch notation (middle C = C4 = MIDI 60). Pitched sample roots add one octave to the filename. Unpitched drums use C4 as the unchanged playback reference, not a claim that the drum has a C pitch. Frequency checks confirm this convention for this subset.
 
-The seven instruments use 26 recordings (22782024 bytes). Most use a single playing strength. Recorder and saxophone are short articulations; increasing note length does not turn them into sustained recordings. Notes between recording roots are pitch shifted. Notes far outside the recorded range can sound less natural.
+The original seven pitched instruments use 26 recordings; seven additional drum recordings provide two kit combinations. Most use a single playing strength. Recorder and saxophone are short articulations; increasing note length does not turn them into sustained recordings. Notes between recording roots are pitch shifted. Notes far outside the recorded range can sound less natural.
 
 These samples retain their CC0 dedication independently of the app code and its dependencies. Instrument and manufacturer names identify the recorded instruments; no endorsement is claimed.

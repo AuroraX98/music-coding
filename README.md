@@ -101,6 +101,8 @@ The Studio tab includes a virtual piano and a small labeled piano roll beside th
 
 ## Included recorded instruments
 
-Sound Library includes a curated VCSL CC0 starter collection. Listen previews a sound, and Insert example adds a complete editable track. The same instruments are available beside the Studio editor. Several recorded pitches per instrument keep playback more natural across the keyboard. Required recordings load before a song starts or exports; a loading failure shows an error and can be retried. Audio files are hosted with the app, not fetched from a third-party server during playback.
+Sound Library includes curated CC0 recordings from VCSL, VSCO 2 Community Edition, and Karoryfer free libraries. Listen previews a sound, and Insert example adds a complete editable track. The same instruments are available beside the Studio editor. Several recorded pitches per instrument keep playback more natural across the keyboard. Required recordings load before a song starts or exports; a loading failure shows an error and can be retried. Audio files are hosted with the app, not fetched from a third-party server during playback.
 
 See public/instruments/index.html and its source manifest for credits, exact upstream revision, file hashes, pitch mappings, and CC0 terms. Original instrument WAV files are included in the GitHub repository and deployed app. The source ZIP includes their provenance and license records; the WAV files are kept separately in public/instruments/.
+
+The expanded collection includes recorded drums, guitar, bass and bowed strings. Drum-kit cards play a short beat and insert its separate tracks together, including them in the selected arrangement section. Melody and bass examples use pitches suited to each instrument. Source and license records for each collection are preserved under public/instruments/.

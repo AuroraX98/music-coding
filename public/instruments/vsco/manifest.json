@@ -1,0 +1,103 @@
+{
+  "library": "VSCO 2 Community Edition",
+  "creator": "Versilian Studios LLC and contributors",
+  "repository": "https://github.com/sgossner/VSCO-2-CE",
+  "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+  "license": "CC0-1.0",
+  "modifications": "Original WAV bytes; renamed locally. Selected recordings only, one playing strength and take per note.",
+  "instruments": [
+    {
+      "id": "vsco_violin",
+      "name": "Bowed violin section",
+      "category": "strings",
+      "previewNote": "D4",
+      "exampleNotes": "D4 F4 A4 D5",
+      "samples": [
+        {
+          "filenameNote": "G2",
+          "rootNote": "G3",
+          "file": "vsco_violin/G2.wav",
+          "sourcePath": "Strings/Violin Section/susVib/VlnEns_susVib_G2_v1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Violin%20Section/susVib/VlnEns_susVib_G2_v1.wav",
+          "bytes": 2341712,
+          "sha256": "feb96c5064fbef43087c495d61a9cab9f70ff1be5b22905147c1f86d5f89547c"
+        },
+        {
+          "filenameNote": "D3",
+          "rootNote": "D4",
+          "file": "vsco_violin/D3.wav",
+          "sourcePath": "Strings/Violin Section/susVib/VlnEns_susVib_D3_v1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Violin%20Section/susVib/VlnEns_susVib_D3_v1.wav",
+          "bytes": 2061808,
+          "sha256": "583e660bc5daa4e094aef5fc014fbb92751040be8741ed7a16847306a1fe0a99"
+        },
+        {
+          "filenameNote": "A3",
+          "rootNote": "A4",
+          "file": "vsco_violin/A3.wav",
+          "sourcePath": "Strings/Violin Section/susVib/VlnEns_susVib_A3_v1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Violin%20Section/susVib/VlnEns_susVib_A3_v1.wav",
+          "bytes": 1890316,
+          "sha256": "72817a53dfd2eb61eca94658c14e1cab6017629ca2f27bab8e394c6675bfaad7"
+        },
+        {
+          "filenameNote": "E4",
+          "rootNote": "E5",
+          "file": "vsco_violin/E4.wav",
+          "sourcePath": "Strings/Violin Section/susVib/VlnEns_susVib_E4_v1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Violin%20Section/susVib/VlnEns_susVib_E4_v1.wav",
+          "bytes": 2315540,
+          "sha256": "787fb4bcfb47d5c88ee1573c8db15f32d345386301be4a8eea6a825847413ae2"
+        }
+      ],
+      "description": "Several violins bow together for a singing sound. Try long notes. Each recording lasts only a few seconds."
+    },
+    {
+      "id": "vsco_cello",
+      "name": "Bowed cello section",
+      "category": "strings",
+      "previewNote": "C3",
+      "exampleNotes": "C3 G2 A2 G2",
+      "samples": [
+        {
+          "filenameNote": "C1",
+          "rootNote": "C2",
+          "file": "vsco_cello/C1.wav",
+          "sourcePath": "Strings/Cello Section/susvib/susvib_C1_v1_1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_C1_v1_1.wav",
+          "bytes": 2347376,
+          "sha256": "abdcea431f384e135c469b0f3e4ac2a437f282f521dc5bcbe22abc221536e8de"
+        },
+        {
+          "filenameNote": "G1",
+          "rootNote": "G2",
+          "file": "vsco_cello/G1.wav",
+          "sourcePath": "Strings/Cello Section/susvib/susvib_G1_v1_1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_G1_v1_1.wav",
+          "bytes": 2161700,
+          "sha256": "9e5d24e8e28d6c7f650f9bb2b33d43c13e341a8bd33124c64e23881378b181ba"
+        },
+        {
+          "filenameNote": "D2",
+          "rootNote": "D3",
+          "file": "vsco_cello/D2.wav",
+          "sourcePath": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_D2_v1_1.wav",
+          "bytes": 2550956,
+          "sha256": "e8640dec9febc6e39fcf06b19d2c95a85d5ff8c38f13c9879e69f551eaf38ab8"
+        },
+        {
+          "filenameNote": "A2",
+          "rootNote": "A3",
+          "file": "vsco_cello/A2.wav",
+          "sourcePath": "Strings/Cello Section/susvib/susvib_A2_v1_1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_A2_v1_1.wav",
+          "bytes": 2336738,
+          "sha256": "c97a003184fdcb153d6b6c0bae8d82a90592a1b04b06bd7caaeda8b9776d5284"
+        }
+      ],
+      "description": "Several cellos bow together for a deep, warm sound. Try slow low notes. Each recording lasts only a few seconds."
+    }
+  ],
+  "totalBytes": 18006146
+}

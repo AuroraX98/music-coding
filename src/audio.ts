@@ -3,7 +3,7 @@ import * as Strudel from '@strudel/web';
 import type {Compilation,ExportOptions,LiveState,MixOptions,SampleAsset,SoundPreset,Statement,VisualEvent} from './types';
 import {encodeWav,evaluateExpression,secondsAtBar,splitArguments} from './audio-utils';
 import {commands as catalogue} from './catalog';
-import {BUILTIN_INSTRUMENTS} from './instruments';
+import {BUILTIN_INSTRUMENTS,BUILTIN_KITS} from './instruments';
 const captureUrl=`${import.meta.env.BASE_URL}capture-worklet.js`;
 
 const S=Strudel as Record<string,any>;
@@ -33,6 +33,8 @@ export class AudioEngine {
   private reservedSounds=new Set<string>();
   private instrumentLoads=new Map<string,Promise<void>>();
   private instrumentRetries=new Map<string,number>();
+  private kitPreviewGeneration=0;
+  private kitPreviewTimers:ReturnType<typeof setTimeout>[]=[];
   private active?:Compilation;
   private mix=defaultMix();
   private built?:BuiltSong;
@@ -409,6 +411,7 @@ export class AudioEngine {
   }
 
   private stopPlayback(invalidate=true):void {
+    this.cancelKitPreview();
     if(invalidate)++this.playbackGeneration;
     this.runtime?.stop();this.pending=undefined;
     if(this.runtime){S.resetGlobalEffects();this.connectMonitor();}
@@ -436,11 +439,35 @@ export class AudioEngine {
     await S.superdough(values,this.context!.currentTime+.025,preset.kind==='pad'?1:.3,.5,0);
   }
 
-  async previewInstrument(id:string,note='C4'):Promise<void>{
+  async previewInstrument(id:string,note?:string):Promise<void>{
     if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
     await this.initialize();await this.context!.resume();await this.loadInstrument(id);
     if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
-    await S.superdough({s:id,note,gain:.6,attack:.005,release:.15,orbit:32},this.context!.currentTime+.025,.8,.5,0);
+    await S.superdough({s:id,note:note??BUILTIN_INSTRUMENTS.find(item=>item.id===id)?.previewNote??'C4',gain:.6,attack:.005,release:.15,orbit:32},this.context!.currentTime+.025,.8,.5,0);
+  }
+
+  private cancelKitPreview(){
+    ++this.kitPreviewGeneration;
+    this.kitPreviewTimers.forEach(timer=>clearTimeout(timer));this.kitPreviewTimers=[];
+  }
+
+  async previewKit(id:string):Promise<void>{
+    if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
+    const kit=BUILTIN_KITS.find(item=>item.id===id);
+    if(!kit)throw new Error('This drum kit is not available.');
+    this.cancelKitPreview();const generation=this.kitPreviewGeneration;
+    await this.initialize();await this.context!.resume();
+    await Promise.all(kit.tracks.map(track=>this.loadInstrument(track.sound)));
+    if(generation!==this.kitPreviewGeneration||this.exportRunning)return;
+    for(const track of kit.tracks){
+      const pattern=S.note(track.notes.replace(/\brest\b/g,'~')).s(track.sound).gain(track.volume??.35);
+      for(const hap of pattern.queryArc(0,1).filter((event:any)=>event.hasOnset())){
+        const timer=setTimeout(()=>{
+          if(generation!==this.kitPreviewGeneration||this.exportRunning)return;
+          void S.superdough({...hap.value,attack:.001,release:.15,orbit:32},this.context!.currentTime+.015,Math.max(.08,(+hap.whole.end-+hap.whole.begin)*2),.5,0).catch((error:Error)=>this.onError?.(error));
+        },Math.max(0,+hap.whole.begin*2000));this.kitPreviewTimers.push(timer);
+      }
+    }
   }
 
   getEvents(startCycle:number,endCycle:number):VisualEvent[]{

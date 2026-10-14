@@ -5,7 +5,7 @@
   "commit": "c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e",
   "license": "CC0-1.0",
   "modifications": "Original WAV bytes; files renamed locally. Only selected recordings are included.",
-  "totalBytes": 22782024,
+  "totalBytes": 27316112,
   "instruments": [
     {
       "id": "vcsl_piano",
@@ -289,6 +289,139 @@
           "rootNote": "C5"
         }
       ]
+    },
+    {
+      "id": "vcsl_kick_deep",
+      "name": "Deep concert bass drum",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "C4 rest C4 rest",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_kick_deep/C4.wav",
+          "sourcePath": "Membranophones/Struck Membranophones/Bass Drum 2/bassdrum_hit_mf1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Bass%20Drum%202/bassdrum_hit_mf1.wav",
+          "bytes": 1888698,
+          "sha256": "9cfa91a11fad6c843e001ad6365949200e2d5b4237cf1193a1493310f0f6c3c1"
+        }
+      ],
+      "description": "A different concert bass drum with a long, deep boom. Use C4 for the original sound."
+    },
+    {
+      "id": "vcsl_snare_alt",
+      "name": "Second snare drum",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "rest C4 rest C4",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_snare_alt/C4.wav",
+          "sourcePath": "Membranophones/Struck Membranophones/Snare Drum, Modern 2/Snare3M_HitSN_v4_rr1_Mid.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Snare%20Drum%2C%20Modern%202/Snare3M_HitSN_v4_rr1_Mid.wav",
+          "bytes": 165792,
+          "sha256": "3ccef692a402781dc23830a2543964ad5bf6aadd3b6f4e5a63d6120e07cf2604"
+        }
+      ],
+      "description": "A second snare drum with its own rattle. Compare the two snares using C4."
+    },
+    {
+      "id": "vcsl_kick",
+      "name": "Concert bass drum",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "C4 rest C4 rest",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_kick/C4.wav",
+          "sourcePath": "Membranophones/Struck Membranophones/Bass Drum 1/BDrumNew_hit_v3_rr1_Sum.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Bass%20Drum%201/BDrumNew_hit_v3_rr1_Sum.wav",
+          "bytes": 367124,
+          "sha256": "a2d8829e8b2b59e8afb12fa396b01758827059339c2a84ad066d17b36c82d1ff"
+        }
+      ],
+      "description": "A large concert bass drum hit with a mallet. Use C4 for its original deep thump."
+    },
+    {
+      "id": "vcsl_snare",
+      "name": "Snare drum",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "rest C4 rest C4",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_snare/C4.wav",
+          "sourcePath": "Membranophones/Struck Membranophones/Snare Drum, Modern 1/Snare2_HitSN_v5_rr1_Mid.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Snare%20Drum%2C%20Modern%201/Snare2_HitSN_v5_rr1_Mid.wav",
+          "bytes": 240496,
+          "sha256": "6ec8445cb207df8f1178d8c3894f47969fd53fb2b81c404317e466de4598dc3e"
+        }
+      ],
+      "description": "A drum with wires underneath that make a crisp rattle. Use C4 for its original sound."
+    },
+    {
+      "id": "vcsl_hihat",
+      "name": "Closed hi-hat",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "C4 C4 C4 C4",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_hihat/C4.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Hi-Hat Cymbal/HiHat_HitC_v3_rr1_Mid.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Hi-Hat%20Cymbal/HiHat_HitC_v3_rr1_Mid.wav",
+          "bytes": 218792,
+          "sha256": "b65ca06ea4f8b5209fc8d98912094be1212911f21e01bd949cc9960db049d37c"
+        }
+      ],
+      "description": "Two cymbals held closed and hit with a stick. Use repeated C4 notes for a steady tick."
+    },
+    {
+      "id": "vcsl_tom",
+      "name": "Low tom drum",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "C4 rest C4 C4",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_tom/C4.wav",
+          "sourcePath": "Membranophones/Struck Membranophones/Legacy Toms/tenor_lower/tenor_f_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Legacy%20Toms/tenor_lower/tenor_f_rr1.wav",
+          "bytes": 439828,
+          "sha256": "9c3b1d9c840a9dd884121f7dd6841368ca69e1465f1de864b82f05cc368d84c2"
+        }
+      ],
+      "description": "A low tom drum with a rounded knock. Try C4 notes at the end of a rhythm."
+    },
+    {
+      "id": "vcsl_crash",
+      "name": "Crash cymbal",
+      "category": "drums",
+      "previewNote": "C4",
+      "exampleNotes": "C4 rest rest rest",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "rootNote": "C4",
+          "file": "vcsl_crash/C4.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_hit_stick_f1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Suspended%20Cymbal%201/susCymb1_hit_stick_f1.wav",
+          "bytes": 1213358,
+          "sha256": "bc03d2057fed2e56f0aa5f34d3fa42d859ba06150f6b9433409d3fce43342fcb"
+        }
+      ],
+      "description": "A cymbal struck with a stick. Try C4 once at the start of a new section."
     }
   ],
   "pitchConvention": "Upstream file names use C3 for middle C. App roots use scientific pitch notation (middle C = C4 = MIDI 60). All sample roots below add one octave to the filename. Frequency checks confirm this convention for this subset."

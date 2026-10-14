@@ -1,0 +1,57 @@
+{
+  "library": "Karoryfer Growlybass",
+  "creator": "Karoryfer Samples and contributors",
+  "repository": "https://github.com/sfzinstruments/karoryfer.growlybass",
+  "commit": "4f483268fc66b5a6d5781d421c0d11b8d08d3fc6",
+  "license": "CC0-1.0",
+  "modifications": "Original WAV bytes; renamed locally. Selected recordings only, one playing strength and take per note.",
+  "instruments": [
+    {
+      "id": "karoryfer_bass",
+      "name": "Growly electric bass",
+      "category": "bass",
+      "previewNote": "E2",
+      "exampleNotes": "E2 E2 G2 A2",
+      "samples": [
+        {
+          "filenameNote": "E2",
+          "rootNote": "E1",
+          "file": "karoryfer_bass/E2.wav",
+          "sourcePath": "sustain/e2_f_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.growlybass/4f483268fc66b5a6d5781d421c0d11b8d08d3fc6/sustain/e2_f_rr1.wav",
+          "bytes": 796608,
+          "sha256": "ab8ea422e3a4210390977d750e7e441bb5d9d3fabcbed5e6702c058ca106e058"
+        },
+        {
+          "filenameNote": "A2",
+          "rootNote": "A1",
+          "file": "karoryfer_bass/A2.wav",
+          "sourcePath": "sustain/a2_f_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.growlybass/4f483268fc66b5a6d5781d421c0d11b8d08d3fc6/sustain/a2_f_rr1.wav",
+          "bytes": 796606,
+          "sha256": "a82372dfddf56c39ea5879adec1bde79d2f40902fa8fcb75ad2d6f5d90db3bf3"
+        },
+        {
+          "filenameNote": "C3",
+          "rootNote": "C2",
+          "file": "karoryfer_bass/C3.wav",
+          "sourcePath": "sustain/c3_f_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.growlybass/4f483268fc66b5a6d5781d421c0d11b8d08d3fc6/sustain/c3_f_rr1.wav",
+          "bytes": 796606,
+          "sha256": "aecf86a56cca457c330e04fab89f1008be44d3d31e48912943ace153089009fb"
+        },
+        {
+          "filenameNote": "A3",
+          "rootNote": "A2",
+          "file": "karoryfer_bass/A3.wav",
+          "sourcePath": "sustain/a3_f_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.growlybass/4f483268fc66b5a6d5781d421c0d11b8d08d3fc6/sustain/a3_f_rr1.wav",
+          "bytes": 796608,
+          "sha256": "990d071388e30c550391c245957c89109437c8bdc1c6fdc94e3d1cf3ce99443d"
+        }
+      ],
+      "description": "A real electric bass with a rough edge. Try low notes to support your song."
+    }
+  ],
+  "totalBytes": 3186428
+}

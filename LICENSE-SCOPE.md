@@ -23,4 +23,4 @@ Read the preserved license texts for their full conditions. Music projects, uplo
 
 ## Included instrument recordings
 
-The curated recordings in public/instruments/ come from the Versilian Community Sample Library (VCSL), published under CC0. They keep their CC0 status and are not relicensed as MIT. That folder preserves the upstream declaration, full CC0 text, and pinned source paths and file hashes.
+The curated recordings in public/instruments/ come from VCSL, VSCO 2 Community Edition, and Karoryfer free libraries, published under CC0. They keep their CC0 status and are not relicensed as MIT. That folder preserves the upstream declaration, full CC0 text, and pinned source paths and file hashes.

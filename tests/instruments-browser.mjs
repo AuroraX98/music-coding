@@ -22,11 +22,24 @@ try{
   report.instruments.push({...instrument,peak:await page.evaluate(()=>Math.max(...window.studioDiagnostics.audio.levels))});
   await setSource(page,song);await page.locator('[data-page="library"]').click();await page.locator(`[data-use-instrument="${instrument.id}"]`).click();
   await page.locator('.studio-piano-panel').waitFor({state:'visible'});
-  const state=await page.evaluate(()=>window.studioDiagnostics),name=instrument.id.replace(/^vcsl_/,'').replace(/_/g,'-');
+  const state=await page.evaluate(()=>window.studioDiagnostics),name=instrument.id.replace(/^(vcsl|vsco|karoryfer)_/,'').replace(/_/g,'-');
   assert.deepEqual(state.compilation.errors,[]);assert.ok(state.project.source.includes('sound: '+instrument.id));assert.ok(state.project.source.includes('tracks: existing-music '+name));assert.ok(state.compilation.tracks.includes(name));
   await page.locator('#play').click();await page.waitForFunction(()=>window.studioDiagnostics.audio.playing);await sound(page);await page.locator('#stop').click();
   await page.locator('[data-page="library"]').click();
  }
+ const kits=await page.locator('[data-preview-kit]').evaluateAll(buttons=>buttons.map(b=>({id:b.dataset.previewKit,name:b.closest('article').querySelector('h3').textContent})));
+ assert.ok(kits.length>=2,'Includes at least two recorded drum kits');
+ for(const kit of kits){
+  await quiet(page);await page.locator('[data-preview-kit="'+kit.id+'"]').click();await sound(page);await quiet(page);
+  await setSource(page,song);await page.locator('#play').click();await page.waitForFunction(()=>window.studioDiagnostics.audio.playing&&window.studioDiagnostics.audio.seconds>.2);
+  await page.locator('[data-page="library"]').click();const before=await page.evaluate(()=>window.studioDiagnostics.audio.seconds);await page.locator('[data-preview-kit="'+kit.id+'"]').click();await page.waitForFunction(t=>window.studioDiagnostics.audio.seconds>t+.3,before);assert.equal(await page.evaluate(()=>window.studioDiagnostics.project.source),song);assert.equal(await page.evaluate(()=>window.studioDiagnostics.audio.playing),true);
+  await page.locator('[data-page="studio"]').click();await page.locator('#stop').click();await page.locator('[data-page="library"]').click();await page.locator('[data-use-kit="'+kit.id+'"]').click();
+  const state=await page.evaluate(()=>window.studioDiagnostics);assert.deepEqual(state.compilation.errors,[]);assert.ok(state.compilation.tracks.length>=4,'Kit inserts multiple drum tracks');assert.ok(state.compilation.tracks.includes('existing-music'));const arrangement=state.project.source.split('tracks: ')[1].split('\n')[0].trim().split(/\s+/);assert.deepEqual(new Set(arrangement),new Set(state.compilation.tracks));
+  await page.locator('#play').click();await sound(page);await page.locator('#stop').click();
+  await page.locator('[data-page="library"]').click();await page.locator('[data-use-kit="'+kit.id+'"]').click();const repeated=await page.evaluate(()=>window.studioDiagnostics);assert.deepEqual(repeated.compilation.errors,[]);assert.equal(new Set(repeated.compilation.tracks).size,repeated.compilation.tracks.length);assert.equal(repeated.compilation.tracks.length,state.compilation.tracks.length*2-1);
+  await page.locator('[data-page="library"]').click();
+ }
+ report.passed.push('Every kit produces audio, preserves a playing song, inserts all drum tracks into the arrangement, and can be inserted again with unique names.');
  report.passed.push('Every Listen button produces a nonzero audio signal; every example compiles, joins the arrangement, and starts playing.');
  await setSource(page,song);await page.locator('#play').click();await page.waitForFunction(()=>window.studioDiagnostics.audio.playing&&window.studioDiagnostics.audio.seconds>.3);
  for(const instrument of instruments){await page.locator('#sp-sound').selectOption(instrument.id);const seconds=await page.evaluate(()=>window.studioDiagnostics.audio.seconds);await page.locator('[data-studio-note="E4"]').click();await page.waitForFunction(()=>document.querySelector('#sp-status').textContent.includes('Played E4'));await page.waitForFunction(t=>window.studioDiagnostics.audio.seconds>t+.15,seconds);assert.equal(await page.evaluate(()=>window.studioDiagnostics.project.source),song);assert.equal(await page.evaluate(()=>window.studioDiagnostics.audio.playing),true);}
@@ -44,6 +57,12 @@ try{
  await failed.waitForFunction(()=>document.body.textContent.includes('Could not load')&&document.body.textContent.includes('Check your connection'));
  assert.equal(await failed.locator('[data-preview-instrument]').first().isDisabled(),false);assert.equal(await failed.evaluate(()=>window.studioDiagnostics.audio.playing),false);
  await failed.unroute(audioPattern);await failed.locator('[data-preview-instrument]').first().click();await sound(failed);await failedContext.close();report.passed.push('A missing recording reports a clear error, restores the Listen button, and successfully retries after the file becomes available.');
+ const kitContext=await browser.newContext(),kitPage=await boot(kitContext);let kitRelease;const kitGate=new Promise(resolve=>{kitRelease=resolve;});let kitRequests=0;
+ await kitPage.route(audioPattern,async route=>{kitRequests++;await kitGate;await route.continue();});await kitPage.locator('[data-page="library"]').click();await kitPage.locator('[data-preview-kit]').first().click();
+ await kitPage.waitForFunction(()=>Array.from(document.querySelectorAll('[data-preview-kit]')).some(b=>b.disabled));await new Promise(resolve=>setTimeout(resolve,200));assert.ok(kitRequests>0);await kitPage.locator('[data-page="studio"]').click();await kitPage.locator('#stop').click();kitRelease();await kitPage.locator('[data-page="library"]').click();await kitPage.waitForFunction(()=>!document.querySelector('[data-preview-kit]').disabled);
+ let maxAfterStop=0;for(let i=0;i<25;i++){maxAfterStop=Math.max(maxAfterStop,await kitPage.evaluate(()=>Math.max(...window.studioDiagnostics.audio.levels)));await new Promise(resolve=>setTimeout(resolve,100));}assert.ok(maxAfterStop<.00001,'Stop cancels kit playback while recordings are loading');
+ await kitPage.locator('[data-preview-kit]').first().click();await sound(kitPage);await kitPage.locator('[data-page="studio"]').click();await kitPage.locator('#stop').click();await quiet(kitPage);let resumedPeak=0;for(let i=0;i<20;i++){resumedPeak=Math.max(resumedPeak,await kitPage.evaluate(()=>Math.max(...window.studioDiagnostics.audio.levels)));await new Promise(resolve=>setTimeout(resolve,100));}assert.ok(resumedPeak<.00001,'Stop cancels remaining scheduled kit hits');await kitContext.close();report.passed.push('Stop cancels both a loading kit and the remaining hits of a playing kit.');
  assert.deepEqual(report.errors,[]);report.success=true;console.log(JSON.stringify(report,null,2));
 }catch(error){report.failure=error.stack;process.exitCode=1;console.error(error);}
 finally{await mkdir('.qa',{recursive:true});await writeFile('.qa/instruments-browser-results.json',JSON.stringify(report,null,2));await browser.close();}
+
