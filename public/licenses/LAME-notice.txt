@@ -1,0 +1,19 @@
+Music Coding uses the LAME MP3 encoder through wasm-media-encoders 0.7.0.
+
+The JavaScript wrapper is copyright (c) 2020-2024 arseneyr and licensed under MIT.
+LAME is separately licensed under the GNU Lesser General Public License.
+
+LAME project and source: https://lame.sourceforge.io/
+LAME licensing explanation: https://lame.sourceforge.io/license.txt
+LAME source archives: https://sourceforge.net/projects/lame/files/lame/
+Encoder wrapper source and WebAssembly build instructions:
+https://github.com/arseneyr/wasm-media-encoders/tree/master
+https://github.com/arseneyr/wasm-media-encoders/blob/master/Makefile
+
+The wrapper builds libmp3lame with --disable-decoder and --disable-frontend.
+The app loads the MP3 WebAssembly module as a separate file. It can be replaced
+by a compatible rebuilt encoder module using the upstream build instructions.
+The app makes no changes to the encoder library.
+
+The package wrapper's MIT license is preserved beside this notice. The full
+LGPL 2.1 license is preserved as LGPL-2.1.txt. Preserve both when redistributing.

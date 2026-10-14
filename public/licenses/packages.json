@@ -1,0 +1,635 @@
+[
+  {
+    "name": "@babel/runtime",
+    "version": "7.29.10",
+    "license": "MIT",
+    "file": "@babel_runtime@7.29.10.txt",
+    "source": "https://github.com/babel/babel.git"
+  },
+  {
+    "name": "@codemirror/autocomplete",
+    "version": "6.18.6",
+    "license": "MIT",
+    "file": "@codemirror_autocomplete@6.18.6.txt",
+    "source": "https://github.com/codemirror/autocomplete.git"
+  },
+  {
+    "name": "@codemirror/commands",
+    "version": "6.8.1",
+    "license": "MIT",
+    "file": "@codemirror_commands@6.8.1.txt",
+    "source": "https://github.com/codemirror/commands.git"
+  },
+  {
+    "name": "@codemirror/language",
+    "version": "6.11.3",
+    "license": "MIT",
+    "file": "@codemirror_language@6.11.3.txt",
+    "source": "https://github.com/codemirror/language.git"
+  },
+  {
+    "name": "@codemirror/lint",
+    "version": "6.8.5",
+    "license": "MIT",
+    "file": "@codemirror_lint@6.8.5.txt",
+    "source": "https://github.com/codemirror/lint.git"
+  },
+  {
+    "name": "@codemirror/state",
+    "version": "6.5.2",
+    "license": "MIT",
+    "file": "@codemirror_state@6.5.2.txt",
+    "source": "https://github.com/codemirror/state.git"
+  },
+  {
+    "name": "@codemirror/view",
+    "version": "6.38.1",
+    "license": "MIT",
+    "file": "@codemirror_view@6.38.1.txt",
+    "source": "https://github.com/codemirror/view.git"
+  },
+  {
+    "name": "@esbuild/win32-x64",
+    "version": "0.25.12",
+    "license": "MIT",
+    "source": "git+https://github.com/evanw/esbuild.git"
+  },
+  {
+    "name": "@kabelsalat/core",
+    "version": "0.4.0",
+    "license": "AGPL-3.0-or-later",
+    "file": "@kabelsalat_core@0.4.0.txt"
+  },
+  {
+    "name": "@kabelsalat/lib",
+    "version": "0.4.1",
+    "license": "AGPL-3.0-or-later",
+    "file": "@kabelsalat_lib@0.4.1.txt"
+  },
+  {
+    "name": "@kabelsalat/web",
+    "version": "0.4.1",
+    "license": "AGPL-3.0-or-later",
+    "file": "@kabelsalat_web@0.4.1.txt"
+  },
+  {
+    "name": "@lezer/common",
+    "version": "1.5.3",
+    "license": "MIT",
+    "file": "@lezer_common@1.5.3.txt",
+    "source": "git+https://code.haverbeke.berlin/lezer/common.git"
+  },
+  {
+    "name": "@lezer/highlight",
+    "version": "1.2.1",
+    "license": "MIT",
+    "file": "@lezer_highlight@1.2.1.txt",
+    "source": "https://github.com/lezer-parser/highlight.git"
+  },
+  {
+    "name": "@lezer/lr",
+    "version": "1.4.11",
+    "license": "MIT",
+    "file": "@lezer_lr@1.4.11.txt",
+    "source": "git+https://code.haverbeke.berlin/lezer/lr.git"
+  },
+  {
+    "name": "@marijn/find-cluster-break",
+    "version": "1.0.4",
+    "license": "MIT",
+    "file": "@marijn_find-cluster-break@1.0.4.txt",
+    "source": "git+https://code.haverbeke.berlin/marijn/find-cluster-break.git"
+  },
+  {
+    "name": "@rollup/rollup-win32-x64-gnu",
+    "version": "4.64.5",
+    "license": "MIT",
+    "source": "git+https://github.com/rollup/rollup.git"
+  },
+  {
+    "name": "@rollup/rollup-win32-x64-msvc",
+    "version": "4.64.5",
+    "license": "MIT",
+    "source": "git+https://github.com/rollup/rollup.git"
+  },
+  {
+    "name": "@strudel/core",
+    "version": "1.2.6",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_core@1.2.6.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@strudel/draw",
+    "version": "1.2.6",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_draw@1.2.6.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@strudel/mini",
+    "version": "1.2.6",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_mini@1.2.6.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@strudel/tonal",
+    "version": "1.2.6",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_tonal@1.2.6.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@strudel/transpiler",
+    "version": "1.2.6",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_transpiler@1.2.6.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@strudel/web",
+    "version": "1.3.0",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_web@1.3.0.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@strudel/webaudio",
+    "version": "1.3.0",
+    "license": "AGPL-3.0-or-later",
+    "file": "@strudel_webaudio@1.3.0.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "@swc/helpers",
+    "version": "0.5.23",
+    "license": "Apache-2.0",
+    "file": "@swc_helpers@0.5.23.txt",
+    "source": "git+https://github.com/swc-project/swc.git"
+  },
+  {
+    "name": "@tonaljs/abc-notation",
+    "version": "4.9.2",
+    "license": "MIT",
+    "file": "@tonaljs_abc-notation@4.9.2.txt"
+  },
+  {
+    "name": "@tonaljs/array",
+    "version": "4.8.5",
+    "license": "MIT",
+    "file": "@tonaljs_array@4.8.5.txt"
+  },
+  {
+    "name": "@tonaljs/chord",
+    "version": "4.10.2",
+    "license": "MIT",
+    "file": "@tonaljs_chord@4.10.2.txt"
+  },
+  {
+    "name": "@tonaljs/chord",
+    "version": "6.2.0",
+    "license": "MIT",
+    "file": "@tonaljs_chord@6.2.0.txt"
+  },
+  {
+    "name": "@tonaljs/chord-detect",
+    "version": "4.9.2",
+    "license": "MIT",
+    "file": "@tonaljs_chord-detect@4.9.2.txt"
+  },
+  {
+    "name": "@tonaljs/chord-type",
+    "version": "5.2.0",
+    "license": "MIT",
+    "file": "@tonaljs_chord-type@5.2.0.txt"
+  },
+  {
+    "name": "@tonaljs/chord-type",
+    "version": "4.8.2",
+    "license": "MIT",
+    "file": "@tonaljs_chord-type@4.8.2.txt"
+  },
+  {
+    "name": "@tonaljs/collection",
+    "version": "4.9.0",
+    "license": "MIT",
+    "file": "@tonaljs_collection@4.9.0.txt"
+  },
+  {
+    "name": "@tonaljs/core",
+    "version": "4.10.4",
+    "license": "MIT",
+    "file": "@tonaljs_core@4.10.4.txt"
+  },
+  {
+    "name": "@tonaljs/duration-value",
+    "version": "4.9.0",
+    "license": "MIT",
+    "file": "@tonaljs_duration-value@4.9.0.txt"
+  },
+  {
+    "name": "@tonaljs/interval",
+    "version": "5.1.0",
+    "license": "MIT",
+    "file": "@tonaljs_interval@5.1.0.txt"
+  },
+  {
+    "name": "@tonaljs/interval",
+    "version": "4.8.2",
+    "license": "MIT",
+    "file": "@tonaljs_interval@4.8.2.txt"
+  },
+  {
+    "name": "@tonaljs/key",
+    "version": "4.11.3",
+    "license": "MIT",
+    "file": "@tonaljs_key@4.11.3.txt"
+  },
+  {
+    "name": "@tonaljs/midi",
+    "version": "4.10.3",
+    "license": "MIT",
+    "file": "@tonaljs_midi@4.10.3.txt"
+  },
+  {
+    "name": "@tonaljs/mode",
+    "version": "4.9.3",
+    "license": "MIT",
+    "file": "@tonaljs_mode@4.9.3.txt"
+  },
+  {
+    "name": "@tonaljs/note",
+    "version": "4.12.2",
+    "license": "MIT",
+    "file": "@tonaljs_note@4.12.2.txt"
+  },
+  {
+    "name": "@tonaljs/pcset",
+    "version": "4.10.2",
+    "license": "MIT",
+    "file": "@tonaljs_pcset@4.10.2.txt"
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.1",
+    "license": "MIT",
+    "file": "@tonaljs_pitch@5.0.1.txt"
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.2",
+    "license": "MIT",
+    "file": "@tonaljs_pitch@5.0.2.txt"
+  },
+  {
+    "name": "@tonaljs/pitch-distance",
+    "version": "5.0.6",
+    "license": "MIT",
+    "file": "@tonaljs_pitch-distance@5.0.6.txt"
+  },
+  {
+    "name": "@tonaljs/pitch-distance",
+    "version": "5.0.2",
+    "license": "MIT",
+    "file": "@tonaljs_pitch-distance@5.0.2.txt"
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "5.0.2",
+    "license": "MIT",
+    "file": "@tonaljs_pitch-interval@5.0.2.txt"
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.1",
+    "license": "MIT",
+    "file": "@tonaljs_pitch-interval@6.1.1.txt"
+  },
+  {
+    "name": "@tonaljs/pitch-note",
+    "version": "6.1.1",
+    "license": "MIT",
+    "file": "@tonaljs_pitch-note@6.1.1.txt"
+  },
+  {
+    "name": "@tonaljs/pitch-note",
+    "version": "5.0.3",
+    "license": "MIT",
+    "file": "@tonaljs_pitch-note@5.0.3.txt"
+  },
+  {
+    "name": "@tonaljs/progression",
+    "version": "4.9.3",
+    "license": "MIT"
+  },
+  {
+    "name": "@tonaljs/range",
+    "version": "4.9.3",
+    "license": "MIT",
+    "file": "@tonaljs_range@4.9.3.txt"
+  },
+  {
+    "name": "@tonaljs/roman-numeral",
+    "version": "4.9.2",
+    "license": "MIT",
+    "file": "@tonaljs_roman-numeral@4.9.2.txt"
+  },
+  {
+    "name": "@tonaljs/scale",
+    "version": "4.13.5",
+    "license": "MIT",
+    "file": "@tonaljs_scale@4.13.5.txt"
+  },
+  {
+    "name": "@tonaljs/scale-type",
+    "version": "4.9.3",
+    "license": "MIT",
+    "file": "@tonaljs_scale-type@4.9.3.txt"
+  },
+  {
+    "name": "@tonaljs/time-signature",
+    "version": "4.10.0",
+    "license": "MIT",
+    "file": "@tonaljs_time-signature@4.10.0.txt"
+  },
+  {
+    "name": "@tonaljs/tonal",
+    "version": "4.10.0",
+    "license": "MIT",
+    "file": "@tonaljs_tonal@4.10.0.txt"
+  },
+  {
+    "name": "@types/estree",
+    "version": "1.0.9",
+    "license": "MIT",
+    "file": "@types_estree@1.0.9.txt",
+    "source": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  {
+    "name": "@types/node",
+    "version": "24.7.2",
+    "license": "MIT",
+    "file": "@types_node@24.7.2.txt",
+    "source": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  {
+    "name": "acorn",
+    "version": "8.19.0",
+    "license": "MIT",
+    "file": "acorn@8.19.0.txt",
+    "source": "git+https://github.com/acornjs/acorn.git"
+  },
+  {
+    "name": "chord-voicings",
+    "version": "0.0.1",
+    "license": "ISC",
+    "source": "git+https://github.com/felixroos/chord-voicings.git"
+  },
+  {
+    "name": "crelt",
+    "version": "1.0.7",
+    "license": "MIT",
+    "file": "crelt@1.0.7.txt",
+    "source": "git+https://code.haverbeke.berlin/marijn/crelt.git"
+  },
+  {
+    "name": "djipevents",
+    "version": "2.0.7",
+    "license": "Apache-2.0",
+    "file": "djipevents@2.0.7.txt"
+  },
+  {
+    "name": "esbuild",
+    "version": "0.25.12",
+    "license": "MIT",
+    "file": "esbuild@0.25.12.txt",
+    "source": "git+https://github.com/evanw/esbuild.git"
+  },
+  {
+    "name": "escodegen",
+    "version": "2.1.0",
+    "license": "BSD-2-Clause",
+    "source": "http://github.com/estools/escodegen.git"
+  },
+  {
+    "name": "esprima",
+    "version": "4.0.1",
+    "license": "BSD-2-Clause",
+    "source": "https://github.com/jquery/esprima.git"
+  },
+  {
+    "name": "estraverse",
+    "version": "5.3.0",
+    "license": "BSD-2-Clause",
+    "source": "http://github.com/estools/estraverse.git"
+  },
+  {
+    "name": "estree-walker",
+    "version": "3.0.3",
+    "license": "MIT",
+    "file": "estree-walker@3.0.3.txt",
+    "source": "https://github.com/Rich-Harris/estree-walker"
+  },
+  {
+    "name": "esutils",
+    "version": "2.0.3",
+    "license": "BSD-2-Clause",
+    "source": "http://github.com/estools/esutils.git"
+  },
+  {
+    "name": "fdir",
+    "version": "6.5.0",
+    "license": "MIT",
+    "file": "fdir@6.5.0.txt",
+    "source": "git+https://github.com/thecodrr/fdir.git"
+  },
+  {
+    "name": "fflate",
+    "version": "0.8.2",
+    "license": "MIT",
+    "file": "fflate@0.8.2.txt",
+    "source": "https://github.com/101arrowz/fflate"
+  },
+  {
+    "name": "fraction.js",
+    "version": "5.3.4",
+    "license": "MIT",
+    "file": "fraction.js@5.3.4.txt",
+    "source": "git+ssh://git@github.com/rawify/Fraction.js.git"
+  },
+  {
+    "name": "get-tsconfig",
+    "version": "4.14.3",
+    "license": "MIT",
+    "file": "get-tsconfig@4.14.3.txt",
+    "source": "privatenumber/get-tsconfig"
+  },
+  {
+    "name": "jazz-midi",
+    "version": "1.7.9",
+    "license": "MIT",
+    "source": "https://github.com/jazz-soft/jazz-midi.git"
+  },
+  {
+    "name": "jzz",
+    "version": "1.9.6",
+    "license": "MIT",
+    "file": "jzz@1.9.6.txt",
+    "source": "https://github.com/jazz-soft/JZZ.git"
+  },
+  {
+    "name": "nanoid",
+    "version": "3.3.20",
+    "license": "MIT",
+    "file": "nanoid@3.3.20.txt",
+    "source": "ai/nanoid"
+  },
+  {
+    "name": "nanostores",
+    "version": "0.11.4",
+    "license": "MIT",
+    "file": "nanostores@0.11.4.txt",
+    "source": "nanostores/nanostores"
+  },
+  {
+    "name": "npm",
+    "version": "12.2.0",
+    "license": "Artistic-2.0",
+    "file": "npm@12.2.0.txt",
+    "source": "git+https://github.com/npm/cli.git"
+  },
+  {
+    "name": "picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "file": "picocolors@1.1.1.txt",
+    "source": "alexeyraspopov/picocolors"
+  },
+  {
+    "name": "picomatch",
+    "version": "4.0.7",
+    "license": "MIT",
+    "file": "picomatch@4.0.7.txt",
+    "source": "micromatch/picomatch"
+  },
+  {
+    "name": "postcss",
+    "version": "8.5.29",
+    "license": "MIT",
+    "file": "postcss@8.5.29.txt",
+    "source": "postcss/postcss"
+  },
+  {
+    "name": "resolve-pkg-maps",
+    "version": "1.0.0",
+    "license": "MIT",
+    "file": "resolve-pkg-maps@1.0.0.txt",
+    "source": "privatenumber/resolve-pkg-maps"
+  },
+  {
+    "name": "rollup",
+    "version": "4.64.5",
+    "license": "MIT",
+    "file": "rollup@4.64.5.txt",
+    "source": "git+https://github.com/rollup/rollup.git"
+  },
+  {
+    "name": "source-map",
+    "version": "0.6.1",
+    "license": "BSD-3-Clause",
+    "file": "source-map@0.6.1.txt",
+    "source": "http://github.com/mozilla/source-map.git"
+  },
+  {
+    "name": "source-map-js",
+    "version": "1.2.2",
+    "license": "BSD-3-Clause",
+    "file": "source-map-js@1.2.2.txt",
+    "source": "7rulnik/source-map-js"
+  },
+  {
+    "name": "style-mod",
+    "version": "4.1.4",
+    "license": "MIT",
+    "file": "style-mod@4.1.4.txt",
+    "source": "git+https://code.haverbeke.berlin/marijn/style-mod.git"
+  },
+  {
+    "name": "superdough",
+    "version": "1.3.0",
+    "license": "AGPL-3.0-or-later",
+    "file": "superdough@1.3.0.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "supradough",
+    "version": "1.2.4",
+    "license": "AGPL-3.0-or-later",
+    "file": "supradough@1.2.4.txt",
+    "source": "git+https://codeberg.org/uzu/strudel.git"
+  },
+  {
+    "name": "tinyglobby",
+    "version": "0.2.17",
+    "license": "MIT",
+    "file": "tinyglobby@0.2.17.txt",
+    "source": "git+https://github.com/SuperchupuDev/tinyglobby.git"
+  },
+  {
+    "name": "tslib",
+    "version": "2.8.1",
+    "license": "0BSD",
+    "file": "tslib@2.8.1.txt",
+    "source": "https://github.com/Microsoft/tslib.git"
+  },
+  {
+    "name": "tsx",
+    "version": "4.20.6",
+    "license": "MIT",
+    "file": "tsx@4.20.6.txt",
+    "source": "privatenumber/tsx"
+  },
+  {
+    "name": "typescript",
+    "version": "5.9.3",
+    "license": "Apache-2.0",
+    "file": "typescript@5.9.3.txt",
+    "source": "https://github.com/microsoft/TypeScript.git"
+  },
+  {
+    "name": "undici-types",
+    "version": "7.14.0",
+    "license": "MIT",
+    "file": "undici-types@7.14.0.txt",
+    "source": "git+https://github.com/nodejs/undici.git"
+  },
+  {
+    "name": "vite",
+    "version": "7.1.12",
+    "license": "MIT",
+    "file": "vite@7.1.12.txt",
+    "source": "git+https://github.com/vitejs/vite.git"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.8",
+    "license": "MIT",
+    "file": "w3c-keyname@2.2.8.txt",
+    "source": "git+https://github.com/marijnh/w3c-keyname.git"
+  },
+  {
+    "name": "wasm-media-encoders",
+    "version": "0.7.0",
+    "license": "MIT",
+    "file": "wasm-media-encoders@0.7.0.txt",
+    "source": "https://github.com/arseneyr/wasm-media-encoders"
+  },
+  {
+    "name": "webmidi",
+    "version": "3.3.1",
+    "license": "Apache-2.0",
+    "file": "webmidi@3.3.1.txt",
+    "source": "https://github.com/djipco/webmidi.git"
+  }
+]

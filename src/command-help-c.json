@@ -1,0 +1,669 @@
+[
+  {
+    "name": "reset",
+    "description": "Start the current bar of a pattern again whenever a trigger happens.",
+    "notes": [
+      "Give a trigger pattern, such as x ~ x ~. Each x starts it again; ~ leaves a gap. This is not a count of bars."
+    ],
+    "example": "reset: x ~ x ~"
+  },
+  {
+    "name": "restart",
+    "description": "Start the whole pattern again from its first bar whenever a trigger happens.",
+    "notes": [
+      "Give a trigger pattern, such as x ~ x ~. Unlike reset, this also returns a pattern that spans several bars to its first bar."
+    ],
+    "example": "restart: x ~ x ~"
+  },
+  {
+    "name": "invert",
+    "description": "Swap the on and off values in a pattern: 0 becomes 1, and 1 becomes 0.",
+    "notes": [
+      "Use with a pattern of on/off values, such as a rhythm mask. It does not turn a melody upside down."
+    ]
+  },
+  {
+    "name": "pick",
+    "description": "Use numbers or names to choose from a list of patterns, keeping each chosen pattern's timing.",
+    "notes": [
+      "Start with a pattern of choice numbers and supply a list of choices. List positions start at 0; a number past the end selects the last choice.",
+      "Use this inside a named pattern or signal, then pass its result to notes: or play:. A plain number after pick: is not a choices list."
+    ],
+    "example": "signal: choices\n  run: 2\n  pick: [\"C4 E4\", \"G4 B4\"]\ntrack: melody\n  sound: triangle\n  notes: $choices"
+  },
+  {
+    "name": "pickmod",
+    "description": "Choose a pattern by number, starting again at the first choice when the number passes the end of the list.",
+    "notes": [
+      "Use a pattern of choice numbers and a list of patterns, as with pick. List positions start at 0."
+    ],
+    "example": "pickmod: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "pick f",
+    "description": "Use numbers to choose which change to apply to your music.",
+    "notes": [
+      "Give the choice numbers, then a list of changes. List positions start at 0. Use $name to refer to a change: block you defined.",
+      "For example, 0, [rev, rev] selects the first of two reverse changes. Use different named changes to make the choices useful."
+    ]
+  },
+  {
+    "name": "pickmod f",
+    "description": "Choose a change by number, starting again at the first choice when the number passes the end of the list.",
+    "notes": [
+      "In this app’s current engine, give the list of changes first, then the number pattern. This argument order differs from pick f.",
+      "List positions start at 0. Larger choice numbers wrap back to the start of the list."
+    ],
+    "example": "pickmod f: [rev, palindrome], mini(\"<0 1>\")"
+  },
+  {
+    "name": "pick restart",
+    "description": "Choose a pattern and start it again from its first bar each time it is selected.",
+    "notes": [
+      "Needs a pattern of choice numbers and a list of choices, just like pick. List positions start at 0."
+    ],
+    "example": "pick restart: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "pickmod restart",
+    "description": "Choose and restart a pattern, returning to the first choice when the choice number passes the end of the list.",
+    "notes": [
+      "Needs a pattern of choice numbers and a list of choices. List positions start at 0."
+    ],
+    "example": "pickmod restart: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "pick reset",
+    "description": "Choose a pattern and start its current bar again each time it is selected.",
+    "notes": [
+      "Needs a pattern of choice numbers and a list of choices. Use pick restart if you also want to return to the first bar."
+    ],
+    "example": "pick reset: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "pickmod reset",
+    "description": "Choose a pattern and restart its current bar, returning to the first choice when the choice number passes the list's end.",
+    "notes": [
+      "Needs a pattern of choice numbers and a list of choices. List positions start at 0."
+    ],
+    "example": "pickmod reset: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "inhabit",
+    "description": "Choose patterns and fit one bar of each into the time taken by its choice event.",
+    "notes": [
+      "Needs a pattern of choice numbers and a list of patterns, just like pick. A shorter choice event makes the chosen pattern play faster."
+    ],
+    "example": "inhabit: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "inhabitmod",
+    "description": "Choose patterns and fit them into each choice event, wrapping back to the first choice after the end of the list.",
+    "notes": [
+      "Needs a pattern of choice numbers and a list of patterns. List positions start at 0."
+    ],
+    "example": "inhabitmod: [\"C4 E4\", \"G4 B4\"]"
+  },
+  {
+    "name": "squeeze",
+    "description": "Choose a pattern by number and fit it into the time taken by that choice.",
+    "notes": [
+      "This function needs a pattern of choice numbers and a list of choices. Use inhabitmod for the same kind of choice as a command inside a signal block."
+    ],
+    "example": "signal: choices\n  run: 2\ntrack: melody\n  sound: triangle\n  notes: squeeze($choices, [\"C4 E4\", \"G4 B4\"])"
+  },
+  {
+    "name": "superimpose",
+    "description": "Play the original pattern together with a changed copy.",
+    "notes": [
+      "Indent the changes beneath this command, such as faster: 2 or transpose: 12. Both copies play, so check their combined volume."
+    ]
+  },
+  {
+    "name": "layer",
+    "description": "Add a changed copy of the pattern on top of the original.",
+    "notes": [
+      "In this app, indent the changes beneath layer:. It keeps the original playing, like superimpose."
+    ]
+  },
+  {
+    "name": "off",
+    "description": "Add a changed copy that starts later or earlier than the original.",
+    "notes": [
+      "Give the time shift in bars: 0.25 is a quarter of a bar later. Indent the changes beneath this command."
+    ]
+  },
+  {
+    "name": "echo",
+    "description": "Play several copies with a gap between them, making each later copy quieter.",
+    "notes": [
+      "Give the total number of copies, the gap in bars, and a volume multiplier. For example, 3, 0.125, 0.5 gives three copies, spaced one eighth of a bar apart, each half as loud as the last."
+    ]
+  },
+  {
+    "name": "echo with",
+    "description": "Play several copies spaced apart in time, using the changes you choose.",
+    "notes": [
+      "Give the total number of copies and the gap in bars, then indent the changes underneath. The changes apply to every copy, including the first."
+    ]
+  },
+  {
+    "name": "add",
+    "description": "Add the given number to each number in a pattern.",
+    "notes": [
+      "Use on number patterns or signals. To move the pitch of notes already in a track, use transpose."
+    ]
+  },
+  {
+    "name": "sub",
+    "description": "Subtract the given number from each number in a pattern.",
+    "notes": [
+      "Use on number patterns or signals. To lower notes already in a track, use transpose with a negative number."
+    ]
+  },
+  {
+    "name": "mul",
+    "description": "Multiply each number in a pattern by the given amount. Multiplying by 2 doubles it.",
+    "notes": [
+      "Use on number patterns or signals, before passing the result to a setting such as frequency or volume."
+    ]
+  },
+  {
+    "name": "div",
+    "description": "Divide each number in a pattern by the given amount. Dividing by 2 halves it.",
+    "notes": [
+      "Use on number patterns or signals. The amount must not be zero."
+    ]
+  },
+  {
+    "name": "round",
+    "description": "Round each number to the nearest whole number. For example, 2.7 becomes 3.",
+    "notes": [
+      "Use on a number pattern or signal, such as moving values that will become note numbers."
+    ]
+  },
+  {
+    "name": "floor",
+    "description": "Round each number down to a whole number. For example, 2.7 becomes 2.",
+    "notes": [
+      "Use on number patterns or signals. Negative numbers also round downward: -2.3 becomes -3."
+    ]
+  },
+  {
+    "name": "ceil",
+    "description": "Round each number up to a whole number. For example, 2.3 becomes 3.",
+    "notes": [
+      "Use on number patterns or signals. Negative numbers also round upward: -2.7 becomes -2."
+    ]
+  },
+  {
+    "name": "range",
+    "description": "Change values from 0–1 into a range you choose. With 200, 2000, a value of 0 becomes 200 and 1 becomes 2000.",
+    "notes": [
+      "Pairs with signals such as sine and rand. Use range2 for signals that go from -1 to 1."
+    ]
+  },
+  {
+    "name": "rangex",
+    "description": "Change values from 0–1 into a range where equal steps multiply the result by equal amounts.",
+    "notes": [
+      "Give two positive limits. This is useful for a signal controlling frequency, where multiplying by 2 raises the pitch by one octave."
+    ]
+  },
+  {
+    "name": "range2",
+    "description": "Change values from -1–1 into a range you choose. The middle value, 0, maps to the middle of your range.",
+    "notes": [
+      "Pairs with signals such as sine2 and rand2. Use range for signals that go from 0 to 1."
+    ]
+  },
+  {
+    "name": "ratio",
+    "description": "Turn ratios into numbers. For example, 3:2 becomes 1.5.",
+    "notes": [
+      "Use on a pattern containing ratios. You can multiply the result by a starting frequency to make related pitches."
+    ]
+  },
+  {
+    "name": "as",
+    "description": "Give values the names of the settings they should control, such as note or gain.",
+    "notes": [
+      "Use on plain values before they become sound events. Give a setting name, or a list of native setting names that matches the order of the values."
+    ],
+    "example": "as: [\"note\", \"gain\"]"
+  },
+  {
+    "name": "sine",
+    "description": "Make a number that rises and falls smoothly between 0 and 1, once per bar.",
+    "notes": [
+      "Put it inside a signal: block, then use $name in a setting such as lowpass:. Add range: to choose the lowest and highest values. For a sine instrument, use sound: sine."
+    ]
+  },
+  {
+    "name": "cosine",
+    "description": "Make a number that starts at 1 and smoothly falls to 0 and rises again, once per bar.",
+    "notes": [
+      "Use inside a named signal, then pass $name to a sound setting. Add range: to choose its limits."
+    ]
+  },
+  {
+    "name": "saw",
+    "description": "Make a number that steadily rises from 0 toward 1, then jumps back to 0 each bar.",
+    "notes": [
+      "Use inside a named signal and add range: to choose useful limits. This controls a number; sound: sawtooth chooses an instrument."
+    ]
+  },
+  {
+    "name": "tri",
+    "description": "Make a number that rises from 0 to 1 and falls back at a steady speed each bar.",
+    "notes": [
+      "Use inside a named signal and add range: to choose useful limits. For a triangle instrument, use sound: triangle."
+    ]
+  },
+  {
+    "name": "square",
+    "description": "Make a number that switches between 0 and 1 halfway through each bar.",
+    "notes": [
+      "Use inside a named signal to switch a setting between two values. For a square instrument, use sound: square."
+    ]
+  },
+  {
+    "name": "rand",
+    "description": "Make a random number between 0 and 1 whenever the pattern reads it.",
+    "notes": [
+      "Use inside a named signal. Add range: to choose limits, or segment: to choose how many separate values happen per bar."
+    ]
+  },
+  {
+    "name": "perlin",
+    "description": "Make random values between 0 and 1 that change smoothly over time.",
+    "notes": [
+      "Use inside a named signal. Pair with range: and a setting such as lowpass: for gradual changes in sound."
+    ]
+  },
+  {
+    "name": "irand",
+    "description": "Make random whole numbers starting at 0 and stopping just before the number you give. With 4, the choices are 0, 1, 2, and 3.",
+    "notes": [
+      "Use a positive whole number. Add segment: to create separate steps, then use the numbers for choices or scale notes."
+    ]
+  },
+  {
+    "name": "brand",
+    "description": "Randomly choose true or false, with an equal chance of each.",
+    "notes": [
+      "Use as an on/off signal, such as a mask that decides which notes play."
+    ]
+  },
+  {
+    "name": "brand by",
+    "description": "Randomly choose true or false, using the chance you give for true.",
+    "notes": [
+      "Use a value from 0 to 1, or a percentage. For example, 25% gives true about one quarter of the time."
+    ],
+    "example": "brand by: 25%"
+  },
+  {
+    "name": "time",
+    "description": "Make a number showing how many bars have passed, including part of the current bar.",
+    "notes": [
+      "Use inside a signal: block. Its value keeps increasing, so use math or another change if your sound setting needs a limited range."
+    ]
+  },
+  {
+    "name": "signal",
+    "description": "Name a changing number that you can use to control a sound setting.",
+    "notes": [
+      "Put signal: at the left edge and indent a source such as sine: beneath it. Use $ followed by the signal's name in another command."
+    ],
+    "example": "signal: sweep\n  sine:\n  range: 300, 2000\ntrack: melody\n  sound: triangle\n  notes: C4 E4 G4\n  lowpass: $sweep"
+  },
+  {
+    "name": "mousex",
+    "description": "Make a changing number from the mouse pointer's left-to-right position.",
+    "notes": [
+      "Use inside a named signal and pass it to a sound setting. Playback and an exported file can differ if you move the mouse."
+    ]
+  },
+  {
+    "name": "mousey",
+    "description": "Make a changing number from the mouse pointer's up-and-down position.",
+    "notes": [
+      "Use inside a named signal and pass it to a sound setting. Playback and an exported file can differ if you move the mouse."
+    ]
+  },
+  {
+    "name": "pace",
+    "description": "Set how many pattern steps fit into one bar.",
+    "notes": [
+      "Needs a pattern with counted steps. Pairs with stepcat, expand, contract, extend, take, drop, shrink, grow, tour, and zip."
+    ]
+  },
+  {
+    "name": "stepalt",
+    "description": "Join patterns step by step, taking turns between the choices in each list.",
+    "notes": [
+      "Give patterns or lists of alternatives. Add pace: afterward to choose how many steps play per bar."
+    ],
+    "example": "stepalt: [\"C4 E4\", \"G4\"], \"A4\""
+  },
+  {
+    "name": "expand",
+    "description": "Multiply the pattern's counted number of steps by the amount you give.",
+    "notes": [
+      "This affects timing when used with pace: or a command that joins counted steps. It does not slow playback on its own; use slower: for that."
+    ]
+  },
+  {
+    "name": "contract",
+    "description": "Divide the pattern's counted number of steps by the amount you give.",
+    "notes": [
+      "This affects timing when used with pace: or a command that joins counted steps. Use a positive amount."
+    ]
+  },
+  {
+    "name": "extend",
+    "description": "Repeat the pattern more times and increase its step count to match.",
+    "notes": [
+      "With extend: 2, A B becomes A B A B. Pair with pace: or stepcat to use the new step count."
+    ]
+  },
+  {
+    "name": "take",
+    "description": "Keep only the number of steps you choose.",
+    "notes": [
+      "A positive number keeps steps from the start; a negative number keeps them from the end. Needs a pattern with counted steps."
+    ]
+  },
+  {
+    "name": "drop",
+    "description": "Remove the number of steps you choose and keep the rest.",
+    "notes": [
+      "A positive number removes steps from the start; a negative number removes them from the end. Needs a pattern with counted steps."
+    ]
+  },
+  {
+    "name": "shrink",
+    "description": "Play a series of shorter versions of the pattern, removing steps each time.",
+    "notes": [
+      "A positive amount removes steps from the start; a negative amount removes them from the end. Add pace: to set the speed of the resulting steps."
+    ]
+  },
+  {
+    "name": "grow",
+    "description": "Play a series of longer versions, adding steps until the whole pattern plays.",
+    "notes": [
+      "A positive amount grows from the start; a negative amount grows from the end. Add pace: to set the speed of the resulting steps."
+    ]
+  },
+  {
+    "name": "tour",
+    "description": "Insert this pattern among other patterns, moving it one place earlier on each repeat.",
+    "notes": [
+      "Give the other patterns as arguments. All these repeats fit into one bar unless you add pace: to spread out the steps."
+    ],
+    "example": "tour: \"E4 F4\", \"G4 A4\""
+  },
+  {
+    "name": "zip",
+    "description": "Take one step from each pattern in turn and repeat that order.",
+    "notes": [
+      "Needs patterns with counted steps, rather than a plain number. Add pace: to spread the resulting steps across bars."
+    ],
+    "example": "signal: interleaved\n  zip: mini(\"C4 E4\"), mini(\"G4 A4\")\n  pace: 4\ntrack: melody\n  sound: triangle\n  notes: $interleaved"
+  },
+  {
+    "name": "color",
+    "description": "Choose the color of your notes in the music display, such as red or #7042bf.",
+    "notes": [
+      "Put it inside a track. It changes note drawings; waveform and spectrum show the combined sound."
+    ]
+  },
+  {
+    "name": "piano roll",
+    "description": "Show notes as bars: their height shows pitch and their width shows length."
+  },
+  {
+    "name": "punchcard",
+    "description": "Show when the pattern's notes and sounds happen as marks in a grid."
+  },
+  {
+    "name": "spiral",
+    "description": "Show the pattern's notes and sounds moving around a spiral."
+  },
+  {
+    "name": "waveform",
+    "description": "Show a moving line shaped by the sound playing now.",
+    "notes": [
+      "Shows the combined audio from the song. Start playback to see the line move."
+    ]
+  },
+  {
+    "name": "pitch wheel",
+    "description": "Show note pitches around a circle so you can see which notes are playing."
+  },
+  {
+    "name": "spectrum",
+    "description": "Show how much of the sound is low, middle, or high pitched.",
+    "notes": [
+      "Shows the combined audio from the song. Start playback to see it change."
+    ]
+  },
+  {
+    "name": "markcss",
+    "description": "This display styling command is not available in this app.",
+    "notes": [
+      "Use color: to choose note colors."
+    ]
+  },
+  {
+    "name": "log",
+    "description": "This command for printing pattern details is not available in this app.",
+    "notes": [
+      "Use the music display to inspect notes and their timing."
+    ]
+  },
+  {
+    "name": "midi",
+    "description": "Send notes to another music app or instrument through a connection called MIDI.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "midin",
+    "description": "Read messages from a connected MIDI controller, such as its knobs and buttons.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "midikeys",
+    "description": "Read the notes you press on a connected MIDI keyboard.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "midiport",
+    "description": "Choose which connected MIDI device receives the music.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "midichan",
+    "description": "Choose a MIDI channel, which lets one connection control different instrument parts.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "midicmd",
+    "description": "Send start, stop, and timing messages to other MIDI music equipment.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "osc",
+    "description": "Send music events to another app using a connection called Open Sound Control, or OSC.",
+    "notes": [
+      "Not available in this app yet; planned for a later release."
+    ]
+  },
+  {
+    "name": "every",
+    "description": "Apply a change every chosen number of bars.",
+    "notes": [
+      "Give a positive whole number and indent the change beneath it. For example, every: 4 with faster: 2 doubles the pattern's speed every fourth bar."
+    ]
+  },
+  {
+    "name": "stut",
+    "description": "An older command for repeating a pattern with quieter copies.",
+    "notes": [
+      "Use echo: for new music. Here the values are copy count, volume multiplier, then gap in bars; echo puts the gap before the volume multiplier."
+    ]
+  },
+  {
+    "name": "sine2",
+    "description": "Make a number that smoothly rises and falls between -1 and 1, once per bar.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose useful limits before passing it to a sound setting."
+    ]
+  },
+  {
+    "name": "cosine2",
+    "description": "Make a number that starts at 1, smoothly falls to -1, and rises again each bar.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose useful limits before passing it to a sound setting."
+    ]
+  },
+  {
+    "name": "saw2",
+    "description": "Make a number that steadily rises from -1 toward 1, then jumps back to -1 each bar.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose useful limits before passing it to a sound setting."
+    ]
+  },
+  {
+    "name": "tri2",
+    "description": "Make a number that rises from -1 to 1 and falls back at a steady speed each bar.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose useful limits before passing it to a sound setting."
+    ]
+  },
+  {
+    "name": "square2",
+    "description": "Make a number that switches between -1 and 1 halfway through each bar.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose the two values you want to switch between."
+    ]
+  },
+  {
+    "name": "rand2",
+    "description": "Make a random number between -1 and 1 whenever the pattern reads it.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose limits, or segment: to create separate steps."
+    ]
+  },
+  {
+    "name": "perlin2",
+    "description": "Make random values between -1 and 1 that change smoothly over time.",
+    "notes": [
+      "Use inside a named signal. Add range2: to choose useful limits before passing it to a sound setting."
+    ]
+  },
+  {
+    "name": "|",
+    "description": "Put this between choices in a pattern to pick one at random.",
+    "notes": [
+      "Use inside a notes: or play: value, such as C4 | E4 | G4."
+    ]
+  },
+  {
+    "name": "` `",
+    "description": "Strudel uses backticks around patterns that span several lines.",
+    "notes": [
+      "In this app, keep each command's value on one line. You do not need backticks around notes: or play: values."
+    ]
+  },
+  {
+    "name": "tempo",
+    "description": "Set the song's speed in beats per minute. At 120 bpm, two beats pass each second.",
+    "notes": [
+      "Put it at the left edge to set the song's speed, or inside a section: to change speed there. Use a number greater than zero."
+    ]
+  },
+  {
+    "name": "beats per bar",
+    "description": "Choose how many beats make one bar, a repeating group of beats.",
+    "notes": [
+      "Put it at the left edge. With 4 beats per bar, count 1, 2, 3, 4 before the next bar starts."
+    ]
+  },
+  {
+    "name": "track",
+    "description": "Start one musical part, such as drums, bass, or melody.",
+    "notes": [
+      "Give the track a unique name and indent its commands underneath. Tracks play together unless your arrangement chooses only some of them."
+    ]
+  },
+  {
+    "name": "play",
+    "description": "Write the sounds and rests that play across one bar.",
+    "notes": [
+      "Use loaded sound names, such as kick and snare. Spaces divide the bar evenly; rest leaves a gap. Put this inside a track."
+    ]
+  },
+  {
+    "name": "show",
+    "description": "Choose how the app draws your music while it plays.",
+    "notes": [
+      "Choose piano roll, punchcard, spiral, pitch wheel, waveform, or spectrum."
+    ]
+  },
+  {
+    "name": "section",
+    "description": "Name a part of your song, such as intro or chorus.",
+    "notes": [
+      "Put it inside arrange:. Indent bars: and tracks: underneath to choose its length and the parts that play."
+    ]
+  },
+  {
+    "name": "bars",
+    "description": "Set how many bars this section lasts.",
+    "notes": [
+      "Put it inside a section: block. Use a positive whole number, such as 8."
+    ]
+  },
+  {
+    "name": "tracks",
+    "description": "Choose which named tracks play during this section.",
+    "notes": [
+      "Put it inside a section: block and use names from your track: blocks. Separate names with spaces."
+    ]
+  },
+  {
+    "name": "pattern",
+    "description": "Name musical instructions so you can use them again.",
+    "notes": [
+      "Put a named pattern at the left edge and indent its instructions. Use use: followed by its name inside a track."
+    ]
+  },
+  {
+    "name": "change",
+    "description": "Name a group of changes so you can apply them again.",
+    "notes": [
+      "Put it at the left edge and indent changes such as lowpass: beneath it. Apply it with use:, or pass $name where a command asks for a change."
+    ]
+  },
+  {
+    "name": "use",
+    "description": "Apply a pattern or change that you named in your song.",
+    "notes": [
+      "The name must match a pattern: or change: definition. Put use: inside the track or definition where you want those instructions applied."
+    ]
+  }
+]

@@ -1,0 +1,712 @@
+[
+  {
+    "name": "sound",
+    "description": "Choose what makes the sound, such as a drum, a synthesizer, or an uploaded recording.",
+    "notes": [
+      "Use notes to give a pitched instrument a tune. Use play to put different drums in one rhythm.",
+      "The sound must be built in, saved in Sound Designer, or uploaded in Sound Library."
+    ]
+  },
+  {
+    "name": "notes",
+    "description": "Choose how high or low each note sounds. In C4, C is the note name and 4 is its octave; C5 is one octave higher.",
+    "notes": [
+      "Separate notes with spaces to play them in order. Use rest for a silent step.",
+      "Add sound to choose the instrument that plays these notes."
+    ]
+  },
+  {
+    "name": "frequency",
+    "description": "Set pitch using vibrations per second, called Hertz or Hz. A value of 440 Hz gives the pitch A4.",
+    "notes": [
+      "Use with a pitched sound such as sine. Use either frequency or notes to choose pitch; frequency takes priority when both are present."
+    ]
+  },
+  {
+    "name": "positions",
+    "description": "Choose items by number, starting with 0 for the first item. The numbers can choose scale notes, chord notes, or recordings in a loaded sound collection.",
+    "notes": [
+      "For a melody, put scale after positions. For chord notes, add chord and then voicing.",
+      "A sound collection must contain several recordings for its numbered choices to sound different."
+    ]
+  },
+  {
+    "name": "bank",
+    "description": "Choose a named group of loaded sounds. The studio group contains kick, snare, and hat.",
+    "notes": [
+      "Use bank: studio with play: kick snare hat. Other banks work only when their sounds are already loaded.",
+      "Remove bank when using an ordinary synthesizer such as sine."
+    ]
+  },
+  {
+    "name": "setcpm",
+    "description": "Set how many whole bars the song plays each minute. For example, 30 bars per minute equals 120 beats per minute when each bar has four beats.",
+    "notes": [
+      "Write this at the left edge, outside every track. Choose one song tempo command: tempo, setcpm, or setcps."
+    ]
+  },
+  {
+    "name": "setcps",
+    "description": "Set how many whole bars the song plays each second. A value of 0.5 means each bar lasts two seconds.",
+    "notes": [
+      "Write this at the left edge, outside every track. Do not add a second tempo command for the same song."
+    ]
+  },
+  {
+    "name": "cpm",
+    "description": "Change this track's speed using a scale where 60 leaves its speed unchanged. A value of 30 makes the track half as fast.",
+    "notes": [
+      "In this app, the result also depends on the song tempo. Use setcpm at the left edge to set an actual number of bars per minute, or faster and slower for track speed."
+    ]
+  },
+  {
+    "name": "volume",
+    "description": "Make this track quieter or louder. A value of 0% is silent; 100% is the full level before other volume controls.",
+    "notes": [
+      "This combines with the Master volume. A track's Mute button still silences it."
+    ]
+  },
+  {
+    "name": "silence",
+    "description": "Replace the current pattern with silence.",
+    "notes": [
+      "Leave the value empty. Use the track's Mute button when you want to switch its sound off and on while keeping the pattern."
+    ]
+  },
+  {
+    "name": "hush",
+    "description": "Silence the pattern at this point in the track's commands.",
+    "notes": [
+      "Leave the value empty. The Stop button stops the whole song."
+    ]
+  },
+  {
+    "name": "$:",
+    "description": "In Strudel's JavaScript editor, this starts a pattern that plays alongside other patterns.",
+    "notes": [
+      "This app uses track: blocks instead. Write track: drums, then indent its play and sound commands underneath."
+    ]
+  },
+  {
+    "name": "_$:",
+    "description": "In Strudel's JavaScript editor, this keeps a pattern written down while switching off its playback.",
+    "notes": [
+      "This app uses the Mute button on a track for this job; do not paste this label into the song."
+    ]
+  },
+  {
+    "name": "\" \"",
+    "description": "Double quotation marks can surround pattern text, such as \"C4 E4 G4\". Spaces inside the text put the notes in order.",
+    "notes": [
+      "For a normal command here, notes: C4 E4 G4 works without quotation marks."
+    ]
+  },
+  {
+    "name": " / ",
+    "description": "This old guide entry refers to writing a pattern across several lines in JavaScript.",
+    "notes": [
+      "It is not a usable command in this editor. Keep each command's pattern on its own line, or use named pattern blocks to organize longer music."
+    ]
+  },
+  {
+    "name": "' '",
+    "description": "Single quotation marks surround text, such as 'triangle' or 'C4 E4'.",
+    "notes": [
+      "Quotation marks keep commas inside one value when a command also takes several arguments."
+    ]
+  },
+  {
+    "name": "",
+    "description": "Function arguments are values given to a function, written inside parentheses in JavaScript.",
+    "notes": [
+      "This empty guide entry is not a command. In this editor, ordinary commands take values after a colon, such as faster: 2."
+    ]
+  },
+  {
+    "name": ".",
+    "description": "In JavaScript, a dot joins a pattern to its next command, as in .gain(0.5).",
+    "notes": [
+      "For ordinary songs here, put commands on separate indented lines, such as volume: 50%. A dot by itself is not a command."
+    ]
+  },
+  {
+    "name": "[]",
+    "description": "Fit several items into the time normally given to one item. For example, C4 [E4 G4] gives E4 and G4 half of the second step each.",
+    "notes": [
+      "Use this inside notes, play, or another pattern value. Empty brackets contain no notes."
+    ]
+  },
+  {
+    "name": "<>",
+    "description": "Choose the next item each time the pattern repeats. For example, <C4 E4> uses C4 for one bar, then E4 for the next.",
+    "notes": [
+      "Use square brackets inside the angle brackets when one turn should contain several notes."
+    ]
+  },
+  {
+    "name": "*",
+    "description": "Repeat an item faster within its existing time. For example, kick*4 plays four evenly spaced kicks.",
+    "notes": [
+      "Put a number after the star. To speed up a whole track, use faster."
+    ]
+  },
+  {
+    "name": "/",
+    "description": "Stretch a pattern over more time. For example, [C4 E4]/2 takes twice as long to play.",
+    "notes": [
+      "Put a positive number after the slash. Use square brackets to show exactly which group should slow down."
+    ]
+  },
+  {
+    "name": "~ / -",
+    "description": "Leave a silent step in a pattern. For example, kick ~ snare ~ alternates sounds and rests.",
+    "notes": [
+      "Use ~ or - as a separate item. The word rest also works in this app."
+    ]
+  },
+  {
+    "name": ",",
+    "description": "Inside a pattern, a comma puts parts at the same time. For example, [C4,E4,G4] plays a chord.",
+    "notes": [
+      "Outside brackets or quotation marks, this editor also uses commas to separate a command's arguments. Write notes: [C4,E4,G4] to keep the chord together."
+    ]
+  },
+  {
+    "name": "!",
+    "description": "Add repeated copies of an item to the sequence. For example, C4!2 E4 becomes C4 C4 E4, with three equal steps.",
+    "notes": [
+      "Use * when you want faster repeats inside one step instead."
+    ]
+  },
+  {
+    "name": "@",
+    "description": "Give an item a larger share of the pattern's time. For example, C4@2 E4 gives C4 twice as much time as E4.",
+    "notes": [
+      "This changes the item's time slot. The instrument's envelope and clip settings also affect how long you hear it."
+    ]
+  },
+  {
+    "name": "_",
+    "description": "Extend the previous item by one more step without starting it again. For example, C4 _ E4 holds C4 across the first two steps.",
+    "notes": [
+      "Use this after an item inside pattern text. How long the sound rings also depends on its envelope."
+    ]
+  },
+  {
+    "name": "?",
+    "description": "Give an item a chance of being left out. A plain question mark leaves it out about half the time.",
+    "notes": [
+      "A number sets the chance of removal: kick?0.25 is removed about one quarter of the time."
+    ]
+  },
+  {
+    "name": "{}",
+    "description": "Play groups with different numbers of steps while keeping their steps the same length. The groups can finish their repeats at different times.",
+    "notes": [
+      "Separate groups with commas, as in {kick snare,hat hat hat}. Add % after the closing brace to choose how many steps fit in a bar."
+    ]
+  },
+  {
+    "name": "%",
+    "description": "After a curly bracket group, set how many of its steps fit in one bar. For example, {kick snare hat}%4 runs at four steps per bar.",
+    "notes": [
+      "This use belongs after }. In volume: 30%, the percent sign instead means thirty percent."
+    ]
+  },
+  {
+    "name": "(3,8)",
+    "description": "Place three hits as evenly as possible across eight steps. Put it after an item, as in kick(3,8).",
+    "notes": [
+      "Change the first number for the hits and the second for the total steps. A third number rotates the rhythm's starting position."
+    ]
+  },
+  {
+    "name": ":",
+    "description": "A colon separates a command name from its value. Inside pattern text, it can also join related values, such as a sound name and recording number.",
+    "notes": [
+      "sound: my-sample:0 selects recording 0 from that loaded sound. Other commands, such as scale: C:minor, use the colon differently."
+    ]
+  },
+  {
+    "name": "# / b",
+    "description": "A # raises a note by one semitone; b lowers it by one semitone. A semitone is one step between neighboring piano keys, counting black keys.",
+    "notes": [
+      "Put the sign between the note letter and octave, as in F#4 or Bb3."
+    ]
+  },
+  {
+    "name": "x",
+    "description": "Mark an active step when writing a rhythm for struct. For example, x ~ x ~ keeps alternating steps active.",
+    "notes": [
+      "It marks where something happens; sound or notes supplies what happens there."
+    ]
+  },
+  {
+    "name": "^",
+    "description": "Choose which level of a nested pattern is used to count its steps. This helps commands that join or line up patterns by step count.",
+    "notes": [
+      "Put ^ at the start of the group to count. For example, C4 [^E4 G4] counts four small steps across the whole pattern.",
+      "Use with commands such as stepcat or polymeter; the mark does not choose a sound or pitch."
+    ],
+    "example": "notes: C4 [^E4 G4]"
+  },
+  {
+    "name": "//",
+    "description": "Write a comment that the app does not play. Everything after // on that line is a note for you.",
+    "notes": [
+      "Put it after a command or on a separate line. Text inside quotation marks is treated as text rather than a comment."
+    ]
+  },
+  {
+    "name": "seq",
+    "description": "Play several patterns one after another within one bar. Each pattern gets an equal part of that bar.",
+    "notes": [
+      "Separate the patterns with commas. Use cat when each pattern should get a whole bar."
+    ]
+  },
+  {
+    "name": "cat",
+    "description": "Play patterns one after another, giving each one a whole bar before moving to the next.",
+    "notes": [
+      "Separate the patterns with commas, or put named pattern blocks underneath. The sequence repeats after the last pattern."
+    ]
+  },
+  {
+    "name": "stack",
+    "description": "Play several patterns at the same time.",
+    "notes": [
+      "Put pattern blocks underneath to give each part its own notes or sound. Child patterns inherit settings written before stack unless they replace them."
+    ]
+  },
+  {
+    "name": "stepcat",
+    "description": "Join patterns in order, giving longer step sequences a larger share of the bar. A three-step pattern gets three times the time of a one-step pattern.",
+    "notes": [
+      "Give it patterns to join, rather than only a step count. This uses the steps stored in each pattern."
+    ],
+    "example": "stepcat: C4 E4 G4, C5"
+  },
+  {
+    "name": "arrange",
+    "description": "Build a song from sections, choosing which tracks play and how many bars each section lasts.",
+    "notes": [
+      "For song structure, write arrange: at the left edge and put section: blocks under it. Each section needs bars and tracks.",
+      "Choose existing track names. A section can also have its own tempo."
+    ],
+    "example": "arrange:\n  section: intro\n    bars: 4\n    tracks: melody"
+  },
+  {
+    "name": "polymeter",
+    "description": "Play patterns together with equally long steps, even when the patterns have different numbers of steps. Shorter patterns repeat while longer patterns continue.",
+    "notes": [
+      "Use patterns with known step counts, such as notes sequences. Put pattern blocks underneath; a number alone does not supply the music."
+    ],
+    "example": "polymeter:\n  pattern: three\n    notes: C4 E4 G4\n  pattern: two\n    notes: C3 G3"
+  },
+  {
+    "name": "polymeter steps",
+    "description": "Play patterns together with equally long steps and choose how many steps fit in a bar.",
+    "notes": [
+      "The first value is the steps per bar. Put the patterns after it, or in pattern blocks underneath."
+    ],
+    "example": "polymeter steps: 4\n  pattern: three\n    notes: C4 E4 G4\n  pattern: two\n    notes: C3 G3"
+  },
+  {
+    "name": "run",
+    "description": "Make a sequence of counting numbers, starting at 0. For example, run: 4 produces 0 1 2 3.",
+    "notes": [
+      "The number says how many items to make. Add scale to turn these numbers into scale notes."
+    ]
+  },
+  {
+    "name": "binary",
+    "description": "Write a whole number as a sequence containing only 0 and 1. For example, the number 5 becomes 1 0 1.",
+    "notes": [
+      "Use the result with struct when 1 should mean a hit and 0 should mean a rest. By itself, it is a number pattern."
+    ]
+  },
+  {
+    "name": "binary n",
+    "description": "Write a whole number as a sequence of 0s and 1s with a chosen number of places. For example, binary n: 5, 8 produces 00000101.",
+    "notes": [
+      "Give the number first and the number of places second. Use with struct to turn the 1s and 0s into hits and rests."
+    ],
+    "example": "binary n: 5, 8"
+  },
+  {
+    "name": "faster",
+    "description": "Make this pattern repeat more quickly. A value of 2 fits two repeats into the time one repeat used to take.",
+    "notes": [
+      "This changes the pattern's timing, without changing the song's tempo setting. Use speed for a recording's playback speed and pitch."
+    ]
+  },
+  {
+    "name": "slower",
+    "description": "Give this pattern more time to play. A value of 2 makes one repeat take twice as long.",
+    "notes": [
+      "Use a positive number. Other tracks keep their own timing."
+    ]
+  },
+  {
+    "name": "rev",
+    "description": "Reverse the order and timing of the events inside each bar.",
+    "notes": [
+      "This rearranges the notes or hits. It does not play a recording backward; use a negative speed for that."
+    ]
+  },
+  {
+    "name": "palindrome",
+    "description": "Alternate a normal bar with a bar played in reverse order.",
+    "notes": [
+      "The sounds themselves still play forward. Use this after a notes or play pattern."
+    ]
+  },
+  {
+    "name": "early",
+    "description": "Move this pattern earlier by a number of bars. For example, 0.25 moves it earlier by a quarter of a bar.",
+    "notes": [
+      "Moving a repeating pattern by a whole repeat may sound unchanged. Try a fraction to hear a timing shift."
+    ],
+    "example": "early: 0.25"
+  },
+  {
+    "name": "late",
+    "description": "Move this pattern later by a number of bars. For example, 0.25 moves it later by a quarter of a bar.",
+    "notes": [
+      "This shifts the pattern's position; it does not add a new echo. Use delay for echoes."
+    ],
+    "example": "late: 0.25"
+  },
+  {
+    "name": "swing",
+    "description": "Divide each bar into the chosen number of pairs, then delay the second half of each pair. This gives evenly spaced notes a long-short feel.",
+    "notes": [
+      "For eight evenly spaced notes, swing: 4 makes four swinging pairs. Use swing by to choose the delay amount too."
+    ],
+    "example": "swing: 4"
+  },
+  {
+    "name": "swing by",
+    "description": "Choose how much the second half of each rhythmic pair is delayed, and how many pairs fit in a bar.",
+    "notes": [
+      "Give the delay amount first and pair count second. For eight notes, swing by: 0.2, 4 delays every second note by one fifth of its original step length."
+    ]
+  },
+  {
+    "name": "ply",
+    "description": "Split each event into repeated hits that fit inside its original time. A value of 2 plays each event twice.",
+    "notes": [
+      "The whole pattern keeps the same length. This repeats every event, unlike faster, which repeats the whole pattern more quickly."
+    ]
+  },
+  {
+    "name": "euclid",
+    "description": "Place a chosen number of hits as evenly as possible across a chosen number of steps.",
+    "notes": [
+      "Write hits first, then steps: euclid: 3, 8. Apply it after choosing notes or a sound."
+    ]
+  },
+  {
+    "name": "euclid rot",
+    "description": "Make an evenly spread rhythm, then rotate it to start at a different step.",
+    "notes": [
+      "Give hits, total steps, and rotation in that order. For example, 3, 8, 1 makes three hits across eight steps and shifts the rhythm by one step."
+    ]
+  },
+  {
+    "name": "euclid legato",
+    "description": "Make an evenly spread rhythm and extend each event until the next hit starts.",
+    "notes": [
+      "Give hits first and total steps second. Use a sustained instrument to hear the longer notes; a short drum recording may still end quickly."
+    ]
+  },
+  {
+    "name": "iter",
+    "description": "Divide the pattern into equal parts and begin with a different part on each bar. After visiting every part, start again.",
+    "notes": [
+      "The value is the number of parts. With four parts, the starting point moves forward by a quarter of a bar each time."
+    ]
+  },
+  {
+    "name": "iter back",
+    "description": "Change the pattern's starting part on each bar, moving through the parts in the opposite direction to iter.",
+    "notes": [
+      "The value is the number of equal parts. This shifts their order rather than playing recordings backward."
+    ]
+  },
+  {
+    "name": "segment",
+    "description": "Read a pattern at evenly spaced times to make a chosen number of events per bar.",
+    "notes": [
+      "This is useful with a changing signal such as sine or rand. For example, segment: 4 turns it into four values per bar."
+    ]
+  },
+  {
+    "name": "compress",
+    "description": "Fit the whole pattern into a selected part of each bar, leaving the rest silent.",
+    "notes": [
+      "Give the start and end as fractions of a bar. compress: 0, 0.5 fits the pattern into the first half."
+    ]
+  },
+  {
+    "name": "zoom",
+    "description": "Take one part of the pattern and stretch that part to fill a whole bar.",
+    "notes": [
+      "Give its start and end as fractions of a bar. zoom: 0, 0.5 uses the first half; the second half is left out."
+    ]
+  },
+  {
+    "name": "linger",
+    "description": "Repeat the opening part of a pattern while keeping that part's original timing. A value of 0.25 repeats the first quarter four times per bar.",
+    "notes": [
+      "Use a fraction between 0 and 1 for an opening section. A negative fraction chooses a section from the end."
+    ],
+    "example": "linger: 0.25"
+  },
+  {
+    "name": "fast gap",
+    "description": "Speed up the pattern inside each bar, then leave silence for the rest of that bar. A value of 2 puts the pattern in the first half.",
+    "notes": [
+      "Use a value greater than 1 to create a gap. faster repeats the sped-up pattern instead of leaving this gap."
+    ]
+  },
+  {
+    "name": "inside",
+    "description": "Apply a change separately inside smaller parts of the pattern. For example, inside: 4 with rev underneath reverses each quarter separately.",
+    "notes": [
+      "Put the change on an indented line underneath, or supply a named change. The number sets how many smaller parts to use."
+    ],
+    "example": "inside: 4\n  rev:"
+  },
+  {
+    "name": "outside",
+    "description": "Apply a change across a larger stretch of the pattern. For example, outside: 4 with rev underneath reverses a group of four bars.",
+    "notes": [
+      "Put the change on an indented line underneath, or supply a named change. The number sets the size of the larger stretch."
+    ],
+    "example": "outside: 4\n  rev:"
+  },
+  {
+    "name": "ribbon",
+    "description": "Take a stretch from the song's repeating pattern and keep looping that same stretch.",
+    "notes": [
+      "Give the start position and length in bars. Positions start at 0, so ribbon: 1, 2 repeats the second and third bars."
+    ]
+  },
+  {
+    "name": "clip",
+    "description": "Set how long a sound is allowed to play compared with its event's time slot. A value of 0.5 allows half the slot; 1 allows the full slot.",
+    "notes": [
+      "Values above 1 can let sounds overlap. A recording may end sooner on its own; envelope release can also affect the audible ending."
+    ]
+  },
+  {
+    "name": "scale",
+    "description": "Turn numbered positions into notes from a chosen musical scale. A scale is a set of notes, such as C minor.",
+    "notes": [
+      "Use positions: 0 2 4 followed by scale: C:minor. Position 0 is the scale's first note.",
+      "Put scale before scale transpose."
+    ]
+  },
+  {
+    "name": "transpose",
+    "description": "Move notes up or down by a number of semitones. One semitone is one step between neighboring piano keys, counting black keys.",
+    "notes": [
+      "Positive numbers raise the notes; negative numbers lower them. A change of 12 moves notes up one octave."
+    ]
+  },
+  {
+    "name": "scale transpose",
+    "description": "Move notes up or down by steps in their chosen scale, staying within that scale.",
+    "notes": [
+      "This needs notes that have already passed through scale. Positive numbers move up; negative numbers move down."
+    ]
+  },
+  {
+    "name": "chord",
+    "description": "Choose groups of notes by their chord names, such as C, Am, or G7.",
+    "notes": [
+      "Add voicing after chord to turn the names into playable notes. Add sound to choose the instrument."
+    ]
+  },
+  {
+    "name": "voicing",
+    "description": "Turn chord names into actual notes and choose where those notes sit in pitch.",
+    "notes": [
+      "Put chord before voicing. Put dict, anchor, mode, or positions before voicing too, if you use them.",
+      "Add arp after voicing to play chosen chord notes in a sequence."
+    ]
+  },
+  {
+    "name": "dict",
+    "description": "Choose a collection of ways to arrange chord notes. For example, triads uses three-note chords.",
+    "notes": [
+      "Use a loaded name such as triads, lefthand, guidetones, or legacy, rather than a number. Put dict before voicing."
+    ],
+    "example": "dict: triads"
+  },
+  {
+    "name": "anchor",
+    "description": "Choose a reference note that helps place a chord's notes higher or lower.",
+    "notes": [
+      "For chord placement, use a note such as C5, then mode, then voicing. For example, mode: below keeps the chord at or below the anchor."
+    ],
+    "example": "anchor: C5"
+  },
+  {
+    "name": "mode",
+    "description": "Choose how a chord's notes sit around the anchor note. below puts them at or below it; above puts them at or above it.",
+    "notes": [
+      "Use with chord and anchor, before voicing. The duck choice puts notes below the anchor and leaves the anchor itself out."
+    ],
+    "example": "mode: below"
+  },
+  {
+    "name": "root notes",
+    "description": "Take the main note named by each chord and put it in a chosen octave. For example, Am with root notes: 2 becomes A2.",
+    "notes": [
+      "Use after chord. This creates one note per chord, which is useful for a bass part.",
+      "Put sound and other sound settings after root notes because this operation replaces the chord event with its root note."
+    ]
+  },
+  {
+    "name": "arp",
+    "description": "Choose notes from a chord by number and play them in the order you write. Numbering starts at 0 for the first note.",
+    "notes": [
+      "This needs simultaneous notes first: use chord followed by voicing, or a bracketed chord such as [C4,E4,G4]. Then try arp: 0 1 2 1."
+    ]
+  },
+  {
+    "name": "arp with",
+    "description": "Choose notes from a chord using a custom function that receives the chord's events.",
+    "notes": [
+      "This advanced command needs a function that selects events from the group of simultaneous notes. A normal change such as faster does not make that selection.",
+      "Use arp: 0 1 2 1 for a simple note order."
+    ]
+  },
+  {
+    "name": "samples",
+    "description": "Choose a recording you have already uploaded to Sound Library.",
+    "notes": [
+      "The name must match the uploaded sample. This command does not download a sample from a website.",
+      "Use begin, end, slice, or speed after it to change how the recording plays."
+    ]
+  },
+  {
+    "name": "sound alias",
+    "description": "Give an existing sound another name that you can use in this song.",
+    "notes": [
+      "Write the existing name first and the new name second, as in triangle, soft-tone. The new name must not already belong to a sound.",
+      "Create the alias before using it, then choose it with sound or play."
+    ]
+  },
+  {
+    "name": "begin",
+    "description": "Choose where playback starts inside a recording. A value of 0 starts at the beginning; 0.5 starts halfway through.",
+    "notes": [
+      "Use with an uploaded or loaded sample. Choose a fraction from 0 to 1 and keep it before end."
+    ],
+    "example": "begin: 0.25"
+  },
+  {
+    "name": "end",
+    "description": "Choose where playback stops inside a recording. A value of 1 reaches the end; 0.5 stops halfway through.",
+    "notes": [
+      "Use with a sample, and choose a point after begin. These values describe positions in the file, not seconds."
+    ],
+    "example": "end: 0.75"
+  },
+  {
+    "name": "loop",
+    "description": "Repeat a recording while its sound is active. Use 1 to turn looping on and 0 to turn it off.",
+    "notes": [
+      "This needs a sample. It does not automatically match the song's tempo; use loop at or fit for that.",
+      "Use loop begin and loop end to repeat only part of the recording."
+    ],
+    "example": "loop: 1"
+  },
+  {
+    "name": "loop begin",
+    "description": "Choose where the repeating part of a recording starts. A value of 0.25 starts that part one quarter of the way through the file.",
+    "notes": [
+      "Use with loop: 1. Keep this point inside begin and end, and before loop end."
+    ],
+    "example": "loop begin: 0.25"
+  },
+  {
+    "name": "loop end",
+    "description": "Choose where the repeating part of a recording ends. A value of 0.75 ends that part three quarters of the way through the file.",
+    "notes": [
+      "Use with loop: 1. Keep this point inside begin and end, and after loop begin."
+    ],
+    "example": "loop end: 0.75"
+  },
+  {
+    "name": "loop at",
+    "description": "Change a recording's speed so it fills a chosen number of bars, then repeat it at that spacing.",
+    "notes": [
+      "Use with a sample. For example, loop at: 2 fits it into two bars. Changing speed also changes its pitch."
+    ]
+  },
+  {
+    "name": "cut",
+    "description": "Give sounds a shared group number so a new sample in that group stops the previous one.",
+    "notes": [
+      "Use the same positive group number for samples that should interrupt each other, such as closed and open hi-hats.",
+      "This control is for sample playback; it does not provide the same cutoff behavior for every synthesizer."
+    ]
+  },
+  {
+    "name": "fit",
+    "description": "Change a recording's speed so it fills the time slot of each event.",
+    "notes": [
+      "Use with a sample, especially a recorded drum loop. The speed change also changes pitch.",
+      "Use loop at when you want to choose a number of bars directly."
+    ]
+  },
+  {
+    "name": "chop",
+    "description": "Cut each recording event into equal pieces and play those pieces in order inside that event's time.",
+    "notes": [
+      "The number is the pieces per event. Use with a sample; add rev afterward to reverse the order of the pieces."
+    ]
+  },
+  {
+    "name": "striate",
+    "description": "Cut recordings into equal pieces, then repeat the whole pattern with the next piece of each recording. This passes through the first pieces together, then the second pieces, and so on.",
+    "notes": [
+      "Use with samples. Unlike chop, this repeats the whole sequence between slice choices instead of finishing all pieces of one event first."
+    ]
+  },
+  {
+    "name": "slice",
+    "description": "Split a recording into equal pieces and play the piece numbers you choose.",
+    "notes": [
+      "Give the number of pieces first, then their playback order. slice: 8, 0 1 2 3 uses the first four of eight pieces; counting starts at 0.",
+      "Use splice when each piece should also change speed to fill its time slot."
+    ]
+  },
+  {
+    "name": "splice",
+    "description": "Choose pieces of a recording and change each piece's speed to fill its allotted time.",
+    "notes": [
+      "Give the piece count first, then the piece numbers, starting at 0. This needs a sample; changing speed can change pitch."
+    ]
+  },
+  {
+    "name": "scrub",
+    "description": "Start playback at changing positions inside a recording. Each position is a fraction of the file, from 0 at the beginning to 1 at the end.",
+    "notes": [
+      "Use with a sample and a pattern of positions, such as 0 0.25 0.5 0.75. A value such as 0.5:2 starts halfway through at twice the current speed."
+    ],
+    "example": "scrub: 0 0.25 0.5 0.75"
+  },
+  {
+    "name": "speed",
+    "description": "Change how quickly a recording plays. A value of 2 plays it twice as fast and raises its pitch by an octave; 0.5 plays it at half speed and lowers it by an octave.",
+    "notes": [
+      "This needs a sample. Negative values play it backward; -1 plays backward at normal speed.",
+      "Use faster or slower to change when events happen without changing the recording's pitch."
+    ]
+  }
+]

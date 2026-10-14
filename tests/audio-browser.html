@@ -1,0 +1,8 @@
+<!doctype html><html><head><link rel='icon' href='/favicon.svg' type='image/svg+xml'></head><body><button id="start">Test audio</button><pre id="result"></pre><script type="module">
+import {AudioEngine,DEFAULT_PRESETS} from '/src/audio.ts';
+import {compile} from '/src/language.ts';
+import * as Strudel from '@strudel/web';
+import {commands} from '/src/catalog.ts';
+import {EXAMPLES} from '/src/guides.ts';
+window.audioTest={AudioEngine,DEFAULT_PRESETS,compile,Strudel,commands,EXAMPLES};
+</script></body></html>

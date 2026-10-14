@@ -1,0 +1,56 @@
+{
+  "scales-major-minor": {
+    "title": "Turn C major into C natural minor",
+    "instruction": "Play the scale once. On the notes line, change E4 to Eb4, A4 to Ab4, and B4 to Bb4. Play again; Undo restores the major scale.",
+    "listenFor": "The tonic and rhythm stay the same. Listen to the changed gaps at the third, sixth, and seventh notes.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"C4 D4 E4 F4 G4 A4 B4 C5\"\n  slower: 2\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "keys-tonic": {
+    "title": "Keep a center while changing one note",
+    "instruction": "Listen to the melody returning to C. Change the first E4 on the notes line to Eb4, then play again. Undo returns to the original.",
+    "listenFor": "One outside note changes the phrase without automatically making another note the tonic. Notice whether C still feels settled.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"C4 E4 G4 E4 D4 B3 C4 C4\"\n  slower: 2\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "triads": {
+    "title": "Change a chord from major to minor",
+    "instruction": "Change only E4 to Eb4 in the chord on the notes line. Play both versions, using Undo to compare.",
+    "listenFor": "All three notes sound together. The root C and fifth G stay fixed while the third changes.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"[C4,E4,G4]\"\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "diatonic-chords": {
+    "title": "Move a progression to another key",
+    "instruction": "Play C–G–Am–F. Add transpose: 2 below the notes line and apply the change. Remove that line to return.",
+    "listenFor": "Every chord moves up two semitones: D–A–Bm–G. The I–V–vi–IV relationship and chord qualities stay the same.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"<[C4,E4,G4] [G3,B3,D4] [A3,C4,E4] [F3,A3,C4]>\"\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "progressions-cadences": {
+    "title": "Compare two destinations after G",
+    "instruction": "In the notes line, change only the last chord [C4,E4,G4] to [A3,C4,E4]. Apply, then Undo to compare the two endings.",
+    "listenFor": "The original ends Dm–G–C. The edit ends Dm–G–Am: the G chord reaches a different destination.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"<[C4,E4,G4] [D4,F4,A4] [G3,B3,D4] [C4,E4,G4]>\"\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "inversions-voice-leading": {
+    "title": "Keep two notes still between chords",
+    "instruction": "Change the second chord [A3,C4,E4] to [C4,E4,A4]. Apply the change and compare it with the original using Undo.",
+    "listenFor": "The A-minor chord has the same note names but a new bass and spacing. C4 and E4 can now stay in place while G4 moves to A4.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"<[C4,E4,G4] [A3,C4,E4]>\"\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "chord-numbers": {
+    "title": "Hear the difference between Cmaj7 and C7",
+    "instruction": "Change only B4 to Bb4 in the chord. Play both versions and use Undo to switch back.",
+    "listenFor": "The C-major triad stays unchanged. The extra seventh moves down one semitone, changing Cmaj7 into C7.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"[C4,E4,G4,B4]\"\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  },
+  "modes-and-small-scales": {
+    "title": "Change A natural minor into A Dorian",
+    "instruction": "Play the melody, then change its F4 to F#4. Keep the A bass and all other notes unchanged. Undo restores natural minor.",
+    "listenFor": "A remains the intended center. Raising the sixth degree changes A natural minor into A Dorian.",
+    "source": "tempo: 90 bpm\n\ntrack: melody\n  sound: triangle\n  notes: \"A3 B3 C4 D4 E4 F4 G4 A4\"\n  slower: 2\n  volume: 12%\n\ntrack: center\n  sound: sine\n  notes: A2\n  volume: 12%\n\narrange:\n  section: listen\n    bars: 8\n    tracks: melody center\n\nshow: piano roll"
+  },
+  "outside-the-key": {
+    "title": "Borrow F minor in C major",
+    "instruction": "In the second chord, change A3 to Ab3. Play again, then Undo to compare. The first F-major chord stays unchanged.",
+    "listenFor": "The progression becomes F–Fm–C. Follow A moving down to Ab and then G while the last chord still settles on C.",
+    "source": "tempo: 90 bpm\n\ntrack: lesson\n  sound: triangle\n  notes: \"<[F3,A3,C4] [F3,A3,C4] [C3,G3,C4,E4] [C3,G3,C4,E4]>\"\n  volume: 16%\n  release: 0.15 seconds\n\narrange:\n  section: listen\n    bars: 8\n    tracks: lesson\n\nshow: piano roll"
+  }
+}

@@ -1,0 +1,733 @@
+[
+  {
+    "name": "partials",
+    "description": "Changes the strength of the simple waves that make a synth's tone. The first number controls the main tone; later numbers control higher tones called harmonics.",
+    "notes": [
+      "Use a synth such as sawtooth and a list such as [1, 0.5, 0.2]. Values from 0 to 1 set each wave's strength."
+    ],
+    "example": "sound: sawtooth\npartials: [1, 0.5, 0.2]"
+  },
+  {
+    "name": "phases",
+    "description": "Moves the starting point of each simple wave inside a synth sound. This changes how the waves line up.",
+    "notes": [
+      "Use with synth sounds and partials. Give a list such as [0, 0.5, 0]; 0.5 means half a wave turn."
+    ],
+    "example": "sound: sawtooth\nphases: [0, 0.5, 0]"
+  },
+  {
+    "name": "noise",
+    "description": "Mixes a hiss into a synth sound. A larger value adds more noise.",
+    "notes": [
+      "Use with a synth such as sine or sawtooth. Start with a small amount such as 0.1."
+    ],
+    "example": "sound: sine\nnoise: 0.1"
+  },
+  {
+    "name": "density",
+    "description": "Changes how tightly packed the clicks are in crackling noise.",
+    "notes": [
+      "Use with sound: crackle. This does not add more notes to an ordinary melody."
+    ],
+    "example": "sound: crackle\ndensity: 0.1"
+  },
+  {
+    "name": "vib",
+    "description": "Makes a note wobble up and down in pitch. The number sets how many wobbles happen each second.",
+    "notes": [
+      "Use vibmod to set how far the pitch moves; for example, vib: 5 with vibmod: 0.2."
+    ],
+    "example": "vib: 5\nvibmod: 0.2"
+  },
+  {
+    "name": "vibmod",
+    "description": "Sets how far vibrato moves above and below the note, measured in semitones. One semitone is one step to the next piano key.",
+    "notes": [
+      "Use with vib, which sets the wobble speed."
+    ],
+    "example": "vib: 5\nvibmod: 0.2"
+  },
+  {
+    "name": "fm",
+    "description": "Changes a synth's tone by using another wave to shake its pitch very quickly. A larger amount usually makes a more complex or brighter tone.",
+    "notes": [
+      "Start with sound: sine and fm: 2. Use fmh to change the second wave's speed and the fmattack/fmdecay/fmsustain controls to change the effect during each note."
+    ]
+  },
+  {
+    "name": "fmh",
+    "description": "Sets the speed of the extra wave used by fm compared with the note's own wave. A value of 2 makes the extra wave twice as fast.",
+    "notes": [
+      "Use with a nonzero fm amount. Whole numbers and fractions can give quite different tones."
+    ],
+    "example": "sound: sine\nfm: 2\nfmh: 2"
+  },
+  {
+    "name": "fmattack",
+    "description": "Sets how many seconds the fm effect takes to reach its strongest amount after a note starts.",
+    "notes": [
+      "Use with fm. A longer value makes the tone change more slowly at the start."
+    ],
+    "example": "fm: 2\nfmattack: 0.2"
+  },
+  {
+    "name": "fmdecay",
+    "description": "Sets how many seconds the fm effect takes to fall from its strongest amount to its continuing level.",
+    "notes": [
+      "Use with fm and fmsustain. Set fmsustain below 1 to hear the fall clearly."
+    ],
+    "example": "fm: 2\nfmdecay: 0.2\nfmsustain: 0.2"
+  },
+  {
+    "name": "fmsustain",
+    "description": "Sets how much of the fm effect remains after its initial rise and fall. A value of 0 removes it at that stage; 1 keeps its full amount.",
+    "notes": [
+      "Use with fm and fmdecay. This controls the tone change, not the note's volume."
+    ],
+    "example": "fm: 2\nfmsustain: 0.3"
+  },
+  {
+    "name": "fmenv",
+    "description": "Chooses how the fm effect rises and falls: lin uses a straight ramp, while exp uses a curved ramp.",
+    "notes": [
+      "Use with fm and its timing controls. Write lin or exp rather than an amount; the pinned sound library warns that exp may be unreliable."
+    ],
+    "example": "fm: 2\nfmdecay: 0.2\nfmsustain: 0\nfmenv: lin"
+  },
+  {
+    "name": "lfo",
+    "description": "Makes a sound setting move up and down repeatedly while a note plays. This repeating motion is called modulation.",
+    "notes": [
+      "This advanced control needs a supported setting to move and a configuration. The app cannot yet express its full configuration; the number in lfo: 2 does not set its speed."
+    ]
+  },
+  {
+    "name": "attack",
+    "description": "Sets how many seconds a sound takes to rise from silence to its starting volume. Short times give a sharp start; long times give a gentle swell.",
+    "notes": [
+      "Use a note long enough to hear the rise. Combine with decay, sustain, and release to shape the whole note."
+    ]
+  },
+  {
+    "name": "decay",
+    "description": "Sets how many seconds the volume takes to fall from its starting peak to the sustain level.",
+    "notes": [
+      "Use sustain below 1 to hear this fall. Attack controls the rise before it."
+    ]
+  },
+  {
+    "name": "sustain",
+    "description": "Sets the volume level kept after attack and decay, as a share of the peak. For example, 0.5 keeps half of that level.",
+    "notes": [
+      "This is a level, not a time. Use clip to change note length and release to change its ending fade."
+    ],
+    "example": "sustain: 0.5"
+  },
+  {
+    "name": "release",
+    "description": "Sets how many seconds a sound takes to fade after the note ends.",
+    "notes": [
+      "A longer release lets nearby notes overlap. Include the fading sound when exporting if you want to keep the ending."
+    ]
+  },
+  {
+    "name": "adsr",
+    "description": "Sets a note's rise, fall, held level, and ending fade in one line, in that order.",
+    "notes": [
+      "Write four comma-separated numbers: attack seconds, decay seconds, sustain level, release seconds. For example, 0.01, 0.2, 0.5, 0.3."
+    ]
+  },
+  {
+    "name": "lowpass",
+    "description": "Softens a sound by turning down the high parts above a chosen frequency. Lower numbers usually make the sound darker.",
+    "notes": [
+      "The cutoff is in Hz, meaning vibrations per second. Try lowpass: 1200 Hz; use lpq to emphasize the sound near that cutoff."
+    ]
+  },
+  {
+    "name": "lpq",
+    "description": "Emphasizes the sound near the lowpass cutoff, which can give it a ringing or whistling edge.",
+    "notes": [
+      "Set lowpass too; lpq does not choose the cutoff. Start low and listen as you increase it."
+    ],
+    "example": "lowpass: 1200 Hz\nlpq: 2"
+  },
+  {
+    "name": "highpass",
+    "description": "Thins a sound by turning down the low parts below a chosen frequency.",
+    "notes": [
+      "The cutoff is in Hz. For example, highpass: 300 Hz reduces bass; hpq emphasizes the sound near that cutoff."
+    ],
+    "example": "highpass: 300 Hz"
+  },
+  {
+    "name": "hpq",
+    "description": "Emphasizes the sound near the highpass cutoff, which can give it a ringing edge.",
+    "notes": [
+      "Use with highpass. High values can make the selected area much louder."
+    ],
+    "example": "highpass: 300 Hz\nhpq: 2"
+  },
+  {
+    "name": "bandpass",
+    "description": "Keeps a band of frequencies around the chosen center and turns down sound above and below it.",
+    "notes": [
+      "Give the center in Hz. Use bpq to make the kept band narrower or wider."
+    ],
+    "example": "bandpass: 1000 Hz"
+  },
+  {
+    "name": "bpq",
+    "description": "Controls how narrow the bandpass filter's kept band is. Higher values focus on a narrower part of the sound.",
+    "notes": [
+      "Use with bandpass to choose the center frequency."
+    ],
+    "example": "bandpass: 1000 Hz\nbpq: 2"
+  },
+  {
+    "name": "ftype",
+    "description": "Chooses the filter design, which changes how it cuts and colors the sound.",
+    "notes": [
+      "Use with a filter such as lowpass. Choose 0 for 12db, 1 for ladder, or 2 for 24db; ladder has a more aggressive sound."
+    ],
+    "example": "lowpass: 1200 Hz\nftype: 1"
+  },
+  {
+    "name": "vowel",
+    "description": "Shapes a sound so it resembles a mouth saying a vowel.",
+    "notes": [
+      "Use a, e, i, o, or u. A rich sound such as sawtooth makes the change easier to hear."
+    ],
+    "example": "vowel: a"
+  },
+  {
+    "name": "lpattack",
+    "description": "Sets how many seconds the lowpass filter movement takes to rise to its peak after a note starts.",
+    "notes": [
+      "Use lowpass for the starting cutoff and lpenv for how far it moves. These controls shape brightness, not volume."
+    ],
+    "example": "lowpass: 500 Hz\nlpenv: 2\nlpattack: 0.2"
+  },
+  {
+    "name": "lpdecay",
+    "description": "Sets how many seconds the lowpass filter movement takes to fall from its peak to its continuing level.",
+    "notes": [
+      "Use with lowpass, lpenv, and lpsustain. A short fall can make a bright note quickly turn darker."
+    ],
+    "example": "lowpass: 500 Hz\nlpenv: 2\nlpdecay: 0.2"
+  },
+  {
+    "name": "lpsustain",
+    "description": "Sets the lowpass filter movement's continuing level after its rise and fall. A value of 0 removes that movement; 1 keeps its full amount.",
+    "notes": [
+      "Use with lowpass and lpenv. This is a level, not a number of seconds."
+    ],
+    "example": "lowpass: 500 Hz\nlpenv: 2\nlpsustain: 0.3"
+  },
+  {
+    "name": "lprelease",
+    "description": "Sets how many seconds the lowpass filter movement takes to return after the note ends.",
+    "notes": [
+      "Use with lowpass and lpenv. Give release enough time for the sound to remain audible during this change."
+    ],
+    "example": "lowpass: 500 Hz\nlpenv: 2\nrelease: 0.5 seconds\nlprelease: 0.4"
+  },
+  {
+    "name": "lpenv",
+    "description": "Sets how far the lowpass cutoff moves during each note. This can make a note start bright and then become darker.",
+    "notes": [
+      "Use with lowpass. Shape the movement with lpattack, lpdecay, lpsustain, and lprelease."
+    ],
+    "example": "lowpass: 500 Hz\nlpenv: 2"
+  },
+  {
+    "name": "pattack",
+    "description": "Sets how many seconds the pitch takes to rise through its planned movement at the start of a note.",
+    "notes": [
+      "Use penv to set how far the pitch moves. This changes pitch rather than volume."
+    ],
+    "example": "penv: 7\npattack: 0.2"
+  },
+  {
+    "name": "pdecay",
+    "description": "Sets how many seconds the pitch movement takes to fall from its peak to its continuing level.",
+    "notes": [
+      "Use with penv. A short fall can help make a synth sound like a drum."
+    ],
+    "example": "penv: 7\npdecay: 0.2"
+  },
+  {
+    "name": "prelease",
+    "description": "Sets how many seconds the pitch movement takes to return after the note ends.",
+    "notes": [
+      "Use with penv and a long enough release to hear the ending movement."
+    ],
+    "example": "penv: 7\nrelease: 0.5 seconds\nprelease: 0.4"
+  },
+  {
+    "name": "penv",
+    "description": "Sets how far pitch moves during a note, in semitones. One semitone is one step to the next piano key; 12 is an octave.",
+    "notes": [
+      "Use pattack, pdecay, and prelease to set the timing. Negative values turn the movement upside down."
+    ]
+  },
+  {
+    "name": "pcurve",
+    "description": "Chooses whether the pitch movement follows a straight ramp or a curved ramp.",
+    "notes": [
+      "Use with penv. Write 0 for a straight ramp or 1 for a curved ramp, often useful for drum sounds."
+    ],
+    "example": "penv: 12\npdecay: 0.2\npcurve: 1"
+  },
+  {
+    "name": "panchor",
+    "description": "Places the pitch movement's range above or below the written note. At 0 it starts from the note and reaches upward; at 1 the range ends at the note.",
+    "notes": [
+      "Use with penv. With positive penv, 0.5 centers the range around the written note; the timing still comes from pattack and pdecay."
+    ],
+    "example": "penv: 7\npanchor: 0.5"
+  },
+  {
+    "name": "velocity",
+    "description": "Sets how strongly a note is played. In this app's sound engine, it changes loudness.",
+    "notes": [
+      "Use values such as 0.3 for softer notes and 1 for full strength. Volume still changes the overall level too."
+    ],
+    "example": "velocity: 0.7"
+  },
+  {
+    "name": "compressor",
+    "description": "Turns down sound that rises above a chosen loudness level. This can reduce the difference between quiet and loud parts.",
+    "notes": [
+      "The first value is the threshold in decibels; try -20. This effect does not automatically fix a mix that is too loud."
+    ],
+    "example": "compressor: -20"
+  },
+  {
+    "name": "postgain",
+    "description": "Changes the volume after the sound's effects have been applied. A value of 1 keeps the level; 0.5 halves it.",
+    "notes": [
+      "Useful for turning down a sound after distort or other effects make it louder."
+    ],
+    "example": "postgain: 0.5"
+  },
+  {
+    "name": "xfade",
+    "description": "Blends the current pattern with a second pattern. At 0 you hear the first, at 0.5 both, and at 1 the second.",
+    "notes": [
+      "Give the blend amount and an existing named pattern, such as xfade: 0.5, $other. Changing the amount over time creates the fade."
+    ],
+    "example": "pattern: other\n  sound: triangle\n  notes: G4 B4\ntrack: melody\n  sound: sine\n  notes: C4 E4\n  xfade: 0.5, $other"
+  },
+  {
+    "name": "pan",
+    "description": "Places a sound between the left and right speakers. 0% is left, 50% is the middle, and 100% is right.",
+    "notes": [
+      "Use stereo speakers or headphones to hear the position clearly."
+    ]
+  },
+  {
+    "name": "jux",
+    "description": "Plays the original pattern on the left and a changed copy on the right.",
+    "notes": [
+      "Indent the change beneath it, such as rev: or faster: 2. Stereo speakers or headphones make the difference easier to hear."
+    ]
+  },
+  {
+    "name": "jux by",
+    "description": "Plays the original and a changed copy with a chosen stereo spread. A value of 0 keeps them centered; 1 puts them fully left and right.",
+    "notes": [
+      "Give the spread, then indent the change beneath it. Use 0.5 for a smaller separation."
+    ]
+  },
+  {
+    "name": "coarse",
+    "description": "Makes the audio update in bigger steps, giving it a rougher digital sound.",
+    "notes": [
+      "A value of 1 keeps the original update rate; larger values reduce it. Combine with crush for a stronger old digital sound."
+    ]
+  },
+  {
+    "name": "crush",
+    "description": "Reduces how precisely each tiny piece of audio is stored, making the sound grainy or crunchy. The number sets the bit depth.",
+    "notes": [
+      "Smaller values make the effect stronger. Try 8 before very low values such as 2."
+    ],
+    "example": "crush: 8"
+  },
+  {
+    "name": "distort",
+    "description": "Bends the sound wave to make it rougher, buzzier, or more intense.",
+    "notes": [
+      "Start with a small amount. Use volume or postgain to keep the louder result comfortable."
+    ],
+    "example": "distort: 0.5"
+  },
+  {
+    "name": "orbit",
+    "description": "Puts a sound into a numbered group that shares effects such as echo and reverb.",
+    "notes": [
+      "Give tracks different orbit numbers when their shared effects should stay separate. Duckorbit uses this number to choose which group gets quieter."
+    ]
+  },
+  {
+    "name": "delay",
+    "description": "Adds echoes of the sound. The value controls how much echo you hear.",
+    "notes": [
+      "Use delaytime for the gap between echoes and delayfeedback for how long they keep repeating. Start with an amount below 1."
+    ],
+    "example": "delay: 0.3"
+  },
+  {
+    "name": "delaytime",
+    "description": "Sets the gap between echoes in seconds.",
+    "notes": [
+      "Use a nonzero delay amount. For example, delaytime: 0.25 seconds puts a quarter-second gap between repeats."
+    ],
+    "example": "delay: 0.3\ndelaytime: 0.25 seconds"
+  },
+  {
+    "name": "delayfeedback",
+    "description": "Sets how much of each echo is sent back to create another echo. Higher values make the repeats last longer.",
+    "notes": [
+      "Use with delay. Keep it below 1 for fading repeats; values at or above 1 can keep building up."
+    ],
+    "example": "delay: 0.3\ndelayfeedback: 0.4"
+  },
+  {
+    "name": "reverb",
+    "description": "Adds a fading wash of reflections, like hearing your sound in a room.",
+    "notes": [
+      "The amount sets how much reflected sound you hear. Use roomsize and roomfade to change the space and its fade."
+    ]
+  },
+  {
+    "name": "roomsize",
+    "description": "Changes the size of the imagined room used for reverb.",
+    "notes": [
+      "Use with a nonzero reverb amount. Values from 0 to 10 control size; larger rooms usually sound more spacious."
+    ],
+    "example": "reverb: 20%\nroomsize: 2"
+  },
+  {
+    "name": "roomfade",
+    "description": "Sets how many seconds the reverb takes to fade away.",
+    "notes": [
+      "Use with reverb. Longer fades may need more extra seconds in your export to keep the full ending."
+    ],
+    "example": "reverb: 20%\nroomfade: 2 seconds"
+  },
+  {
+    "name": "roomlp",
+    "description": "Sets the highest frequencies kept at the start of the reverb, in Hz. Lower values make the reflections darker.",
+    "notes": [
+      "Use with reverb. Roomdim controls the darker cutoff near the end of the fade; avoid changing these settings rapidly."
+    ],
+    "example": "reverb: 20%\nroomlp: 6000 Hz"
+  },
+  {
+    "name": "roomdim",
+    "description": "Sets the reverb's high-frequency cutoff near the quiet end of its fade, in Hz.",
+    "notes": [
+      "Use with reverb and roomlp. A lower roomdim than roomlp makes the reflections lose brightness as they fade."
+    ],
+    "example": "reverb: 20%\nroomlp: 6000 Hz\nroomdim: 1000 Hz"
+  },
+  {
+    "name": "iresponse",
+    "description": "Uses a loaded recording as the shape of the reverb. The recording describes how a space or effect responds to a quick sound.",
+    "notes": [
+      "Use with reverb and a recording that the audio engine has already loaded. A name alone does not download a recording."
+    ]
+  },
+  {
+    "name": "phaser",
+    "description": "Adds a repeating sweeping sound by mixing the original with a filtered copy. The number sets the sweep speed.",
+    "notes": [
+      "Use phaserdepth for strength, phasercenter for the middle frequency, and phasersweep for the range."
+    ]
+  },
+  {
+    "name": "phaserdepth",
+    "description": "Sets how strongly the phaser changes the sound. A value of 0 removes the effect and 1 gives its full amount.",
+    "notes": [
+      "Use with phaser to start the sweeping motion."
+    ],
+    "example": "phaser: 2\nphaserdepth: 0.5"
+  },
+  {
+    "name": "phasercenter",
+    "description": "Sets the middle frequency of the phaser's sweep, in Hz.",
+    "notes": [
+      "Use with phaser. Phasersweep controls how far it travels around this center."
+    ],
+    "example": "phaser: 2\nphasercenter: 1000 Hz"
+  },
+  {
+    "name": "phasersweep",
+    "description": "Sets how wide a frequency range the phaser sweeps through, in Hz.",
+    "notes": [
+      "Use with phaser and phasercenter. A larger range makes a broader sweep."
+    ],
+    "example": "phaser: 2\nphasersweep: 2000 Hz"
+  },
+  {
+    "name": "am",
+    "description": "Makes the volume repeatedly rise and fall. The number sets how many pulses happen each second.",
+    "notes": [
+      "This app uses tremolo for this command. Use tremolodepth to control how strongly the volume pulses."
+    ]
+  },
+  {
+    "name": "tremolosync",
+    "description": "Makes the volume pulse in time with the music. The number sets how many pulses happen in one pattern cycle.",
+    "notes": [
+      "Use this to keep pulsing lined up when tempo changes. Use tremolodepth to set the strength."
+    ],
+    "example": "tremolosync: 4"
+  },
+  {
+    "name": "tremolodepth",
+    "description": "Sets how much the volume drops during each tremolo pulse.",
+    "notes": [
+      "Use with am or tremolosync. Start between 0 and 1; 0 keeps the volume steady."
+    ],
+    "example": "am: 4\ntremolodepth: 0.5"
+  },
+  {
+    "name": "tremoloskew",
+    "description": "Changes the balance between the rising and falling parts of each volume pulse.",
+    "notes": [
+      "Use with am or tremolosync. Values from 0 to 1 move between different pulse shapes; 0.5 gives a balanced shape."
+    ],
+    "example": "am: 4\ntremoloskew: 0.5"
+  },
+  {
+    "name": "tremolophase",
+    "description": "Moves the starting point of the volume pulse. A value of 0.5 shifts it by half a pulse.",
+    "notes": [
+      "Use with am or tremolosync. This helps offset the pulses of two tracks."
+    ],
+    "example": "am: 4\ntremolophase: 0.5"
+  },
+  {
+    "name": "tremoloshape",
+    "description": "Chooses the shape followed by the repeating volume pulses.",
+    "notes": [
+      "Use with am or tremolosync. Choose sine for smooth waves, tri for straight rises and falls, square for sudden switches, or saw/ramp for one-way ramps."
+    ],
+    "example": "am: 4\ntremoloshape: sine"
+  },
+  {
+    "name": "duckorbit",
+    "description": "Briefly lowers the volume of another numbered sound group whenever this track plays a note.",
+    "notes": [
+      "Set orbit on the track you want to lower, then use that same number in duckorbit on the triggering track. Duckdepth sets the amount and duckattack sets recovery time."
+    ]
+  },
+  {
+    "name": "duckattack",
+    "description": "Sets how many seconds a ducked sound group takes to return to its normal volume.",
+    "notes": [
+      "Use on the triggering track together with duckorbit and duckdepth. A longer time makes the quiet dip last longer."
+    ],
+    "example": "duckorbit: 2\nduckattack: 0.2"
+  },
+  {
+    "name": "duckdepth",
+    "description": "Sets how far the target sound group's volume drops when ducking happens.",
+    "notes": [
+      "Use with duckorbit. A value of 0 causes no dip; 1 gives the full dip."
+    ],
+    "example": "duckorbit: 2\nduckdepth: 0.7"
+  },
+  {
+    "name": "choose",
+    "description": "Picks one of the supplied values using a changing number. A random number pattern makes the choice random.",
+    "notes": [
+      "For random choices, use a rand signal before choose and give several choices separated by commas. Assign the chosen values to a setting such as notes or sound."
+    ]
+  },
+  {
+    "name": "wchoose",
+    "description": "Picks from choices that each have a weight. A larger weight makes that choice more likely.",
+    "notes": [
+      "Give value-and-weight pairs, such as [\"C4\", 3], [\"E4\", 1]. Use the resulting values as notes or another sound setting."
+    ]
+  },
+  {
+    "name": "choose cycles",
+    "description": "Chooses one of the supplied patterns for each full cycle, with an equal chance for each choice.",
+    "notes": [
+      "Supply patterns or named pattern references. A cycle is one full pattern repeat, usually one bar before timing changes."
+    ],
+    "example": "pattern: first\n  sound: triangle\n  notes: C4 E4\npattern: second\n  sound: sine\n  notes: G4 B4\ntrack: melody\n  choose cycles: $first, $second"
+  },
+  {
+    "name": "wchoose cycles",
+    "description": "Chooses one pattern for each full cycle, giving some choices a greater chance than others.",
+    "notes": [
+      "Give pattern-and-weight pairs. A weight of 3 makes a choice three times as likely as a weight of 1."
+    ]
+  },
+  {
+    "name": "degrade",
+    "description": "Randomly leaves out about half of the notes or hits, leaving gaps in their places.",
+    "notes": [
+      "Put it after a pattern. This changes which events play, rather than making the audio sound grainy."
+    ]
+  },
+  {
+    "name": "degrade by",
+    "description": "Sets the chance that each note or hit will be left out.",
+    "notes": [
+      "Use a value from 0 to 1: 0 keeps everything, 0.25 drops about a quarter, and 1 drops everything."
+    ],
+    "example": "degrade by: 0.25"
+  },
+  {
+    "name": "undegrade",
+    "description": "Keeps the random notes or hits that degrade would leave out.",
+    "notes": [
+      "Apply it to the same original pattern and timing to hear the complementary part. It cannot restore events already removed earlier."
+    ]
+  },
+  {
+    "name": "undegrade by",
+    "description": "Keeps the random notes or hits that degrade by would remove at the same amount.",
+    "notes": [
+      "Use 0 to keep none or 1 to keep everything. Start from the original pattern when comparing the two parts."
+    ],
+    "example": "undegrade by: 0.25"
+  },
+  {
+    "name": "sometimes",
+    "description": "Applies the indented change with a 50% chance, so some events change and others stay as they were.",
+    "notes": [
+      "Indent a change beneath it. Use some cycles instead when you want one decision for a whole cycle."
+    ]
+  },
+  {
+    "name": "sometimes by",
+    "description": "Applies the indented change with the chance you choose.",
+    "notes": [
+      "Give a value from 0 to 1, such as 0.25 for a 25% chance, then indent the change beneath it."
+    ]
+  },
+  {
+    "name": "some cycles",
+    "description": "Randomly applies the indented change to about half of the whole cycles.",
+    "notes": [
+      "One decision covers each full pattern repeat. Indent the change beneath this command."
+    ]
+  },
+  {
+    "name": "some cycles by",
+    "description": "Randomly changes whole cycles using the chance you choose.",
+    "notes": [
+      "Give 0 to change no cycles, 0.5 for about half, or 1 for every cycle, then indent the change beneath it."
+    ]
+  },
+  {
+    "name": "often",
+    "description": "Applies the indented change with a 75% chance.",
+    "notes": [
+      "Indent the change beneath it. This is a chance for each event, not a promise that exactly three of every four events will change."
+    ]
+  },
+  {
+    "name": "rarely",
+    "description": "Applies the indented change with a 25% chance.",
+    "notes": [
+      "Indent the change beneath it. The results can include several changed events or several unchanged events in a row."
+    ]
+  },
+  {
+    "name": "almost never",
+    "description": "Applies the indented change with a 10% chance.",
+    "notes": [
+      "Indent the change beneath it. Over time, roughly one event in ten changes."
+    ]
+  },
+  {
+    "name": "almost always",
+    "description": "Applies the indented change with a 90% chance.",
+    "notes": [
+      "Indent the change beneath it. Over time, roughly nine events in ten change."
+    ]
+  },
+  {
+    "name": "never",
+    "description": "Leaves the pattern unchanged instead of applying the indented change.",
+    "notes": [
+      "Useful for temporarily turning off a change while keeping its lines in your song."
+    ]
+  },
+  {
+    "name": "always",
+    "description": "Applies the indented change every time.",
+    "notes": [
+      "Indent the change beneath it. You can later replace always with sometimes to make the same change occasional."
+    ]
+  },
+  {
+    "name": "first of",
+    "description": "Applies the indented change during the first cycle in each repeating group of cycles.",
+    "notes": [
+      "For example, first of: 4 changes the first cycle of every group of four. Indent the change beneath it."
+    ]
+  },
+  {
+    "name": "last of",
+    "description": "Applies the indented change during the last cycle in each repeating group of cycles.",
+    "notes": [
+      "For example, last of: 4 changes the fourth cycle of every group of four. This is useful for a drum fill."
+    ]
+  },
+  {
+    "name": "when",
+    "description": "Applies the indented change when your condition is true.",
+    "notes": [
+      "Give an on/off pattern such as <1 0>, then indent a change beneath it. Here 1 applies the change and 0 leaves the pattern alone.",
+      "You can also write a condition such as cycle % 2 == 0. Cycle counts bars starting at 0; this condition chooses every other bar."
+    ],
+    "example": "when: <1 0>\n  faster: 2"
+  },
+  {
+    "name": "chunk",
+    "description": "Splits a cycle into equal parts, then changes one part per repeat, moving forward through the parts.",
+    "notes": [
+      "Give the number of parts and indent the change. Chunk: 4 repeats each source cycle four times while visiting its four parts."
+    ]
+  },
+  {
+    "name": "chunk back",
+    "description": "Works like chunk, but visits the parts from last to first.",
+    "notes": [
+      "Give the number of parts and indent the change beneath it."
+    ]
+  },
+  {
+    "name": "fast chunk",
+    "description": "Changes one part per cycle, moving through the parts while the original pattern keeps advancing.",
+    "notes": [
+      "Use this instead of chunk when a pattern changes from cycle to cycle and you want those changes to keep moving. Give the part count and indent the change."
+    ]
+  },
+  {
+    "name": "struct",
+    "description": "Gives a pattern a new rhythm using a pattern of on and off steps. On steps create the places where notes or hits can start.",
+    "notes": [
+      "Use a pattern such as 1 0 1 0, where 1 is on and 0 is off. Mask instead keeps the original event starts."
+    ],
+    "example": "struct: 1 0 1 0"
+  },
+  {
+    "name": "mask",
+    "description": "Keeps or removes existing notes and hits according to an on/off pattern.",
+    "notes": [
+      "Use 1 for on and 0 for off, such as mask: 1 0 1 0. This keeps the original timing of the events that pass through."
+    ],
+    "example": "mask: 1 0 1 0"
+  }
+]

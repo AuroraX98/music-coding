@@ -1,0 +1,920 @@
+{
+  "scales-major-minor": [
+    {
+      "prompt": "How far is one whole step?",
+      "options": [
+        "Two half steps",
+        "One half step",
+        "Three half steps"
+      ],
+      "answer": 0,
+      "explanation": "A whole step equals two semitones, or two half steps."
+    },
+    {
+      "prompt": "Which pattern builds a major scale?",
+      "options": [
+        "W H W W H W W",
+        "W W H W W W H",
+        "W W W H W W H"
+      ],
+      "answer": 1,
+      "explanation": "Major uses whole, whole, half, whole, whole, whole, half."
+    },
+    {
+      "prompt": "Which notes need sharps in D major?",
+      "options": [
+        "F and C",
+        "C and G",
+        "F and G"
+      ],
+      "answer": 0,
+      "explanation": "D E F♯ G A B C♯ D keeps the major-scale step pattern."
+    },
+    {
+      "prompt": "Which notes form A natural minor?",
+      "options": [
+        "A B C♯ D E F♯ G♯",
+        "A B C D E F G",
+        "A B C D E F G♯"
+      ],
+      "answer": 1,
+      "explanation": "A natural minor has no sharps or flats."
+    },
+    {
+      "prompt": "What changes when A natural minor becomes A harmonic minor?",
+      "options": [
+        "F rises to F♯",
+        "C rises to C♯",
+        "G rises to G♯"
+      ],
+      "answer": 2,
+      "explanation": "Harmonic minor raises the seventh degree; in A minor that is G."
+    },
+    {
+      "prompt": "Which notes rise in ascending A melodic minor?",
+      "options": [
+        "C and G",
+        "F and G",
+        "D and E"
+      ],
+      "answer": 1,
+      "explanation": "The sixth and seventh rise: F becomes F♯ and G becomes G♯."
+    },
+    {
+      "prompt": "Which pair is a half step?",
+      "options": [
+        "C–D",
+        "E–F",
+        "F–G"
+      ],
+      "answer": 1,
+      "explanation": "E and F are adjacent piano keys. C–D and F–G are whole steps."
+    },
+    {
+      "prompt": "What is the natural minor step pattern?",
+      "options": [
+        "W H W W H W W",
+        "W W H W W W H",
+        "H W W W H W W"
+      ],
+      "answer": 0,
+      "explanation": "Natural minor places half steps between degrees 2–3 and 5–6."
+    },
+    {
+      "prompt": "How is descending melodic minor commonly taught in classical practice?",
+      "options": [
+        "Always with raised sixth and seventh",
+        "As a chromatic scale",
+        "With the natural minor notes"
+      ],
+      "answer": 2,
+      "explanation": "The common classical descending form returns to natural minor. Jazz often keeps the raised form both ways."
+    },
+    {
+      "prompt": "Which statement about major and minor is accurate?",
+      "options": [
+        "Major always sounds happy",
+        "They describe note relationships; context affects emotion",
+        "Minor always sounds sad"
+      ],
+      "answer": 1,
+      "explanation": "Tempo, rhythm, sound, harmony, and context also affect how music feels."
+    }
+  ],
+  "keys-tonic": [
+    {
+      "prompt": "What does tonic mean?",
+      "options": [
+        "The main note that feels settled",
+        "The fastest note",
+        "The loudest instrument"
+      ],
+      "answer": 0,
+      "explanation": "The tonic is the tonal center; it is not necessarily the loudest or first note."
+    },
+    {
+      "prompt": "Which note is sharp in the key signature of G major?",
+      "options": [
+        "C",
+        "F",
+        "G"
+      ],
+      "answer": 1,
+      "explanation": "G major uses G A B C D E F♯."
+    },
+    {
+      "prompt": "Which note is flat in the key signature of F major?",
+      "options": [
+        "E",
+        "A",
+        "B"
+      ],
+      "answer": 2,
+      "explanation": "F major uses B♭ to keep the major-scale step pattern."
+    },
+    {
+      "prompt": "Which pair are relative keys?",
+      "options": [
+        "C major and C minor",
+        "C major and A minor",
+        "C major and G major"
+      ],
+      "answer": 1,
+      "explanation": "C major and A minor share a key signature but have different tonics."
+    },
+    {
+      "prompt": "Which pair are parallel keys?",
+      "options": [
+        "C major and C minor",
+        "C major and A minor",
+        "G major and E minor"
+      ],
+      "answer": 0,
+      "explanation": "Parallel keys share the same tonic."
+    },
+    {
+      "prompt": "What does an accidental do?",
+      "options": [
+        "Always changes the key",
+        "Changes a written note with a sharp, flat, or natural",
+        "Changes the tempo"
+      ],
+      "answer": 1,
+      "explanation": "An accidental changes a note locally; it need not establish a new key."
+    },
+    {
+      "prompt": "A score has no sharps or flats in its key signature. Which conclusion is safest?",
+      "options": [
+        "It must be C major",
+        "It must be A minor",
+        "The signature alone does not distinguish C major from A minor"
+      ],
+      "answer": 2,
+      "explanation": "Relative major and minor keys share a signature; musical emphasis helps identify the center."
+    },
+    {
+      "prompt": "Which tonic belongs to E minor?",
+      "options": [
+        "E",
+        "G",
+        "B"
+      ],
+      "answer": 0,
+      "explanation": "The tonic names the key, so E is the tonic of E minor."
+    },
+    {
+      "prompt": "A song starts on G. Must its key be G?",
+      "options": [
+        "Yes, always",
+        "No; the rest of the music helps establish the key",
+        "Only if G is played twice"
+      ],
+      "answer": 1,
+      "explanation": "First notes and chords are clues, not proof of the key."
+    },
+    {
+      "prompt": "Which pair shares a tonic but has different scale notes?",
+      "options": [
+        "D major and B minor",
+        "F major and D minor",
+        "D major and D minor"
+      ],
+      "answer": 2,
+      "explanation": "D major and D minor are parallel keys centered on D."
+    }
+  ],
+  "triads": [
+    {
+      "prompt": "Which notes form C major?",
+      "options": [
+        "C E G",
+        "C E♭ G",
+        "C E G♯"
+      ],
+      "answer": 0,
+      "explanation": "C major has a major third E and a perfect fifth G above C."
+    },
+    {
+      "prompt": "Which note turns C major into C minor?",
+      "options": [
+        "Lower G to G♭",
+        "Lower E to E♭",
+        "Raise C to C♯"
+      ],
+      "answer": 1,
+      "explanation": "Major and minor triads differ in the third."
+    },
+    {
+      "prompt": "Which notes form C diminished?",
+      "options": [
+        "C E G♭",
+        "C E♭ G",
+        "C E♭ G♭"
+      ],
+      "answer": 2,
+      "explanation": "A diminished triad has a minor third and a diminished fifth."
+    },
+    {
+      "prompt": "Which notes form C augmented?",
+      "options": [
+        "C E G♯",
+        "C E♭ G",
+        "C E G♭"
+      ],
+      "answer": 0,
+      "explanation": "An augmented triad has a major third and a raised fifth."
+    },
+    {
+      "prompt": "A triad has notes 0, 3, and 7 semitones above its root. What type is it?",
+      "options": [
+        "Major",
+        "Minor",
+        "Diminished"
+      ],
+      "answer": 1,
+      "explanation": "Three semitones gives a minor third, and seven gives a perfect fifth."
+    },
+    {
+      "prompt": "Which distances build a major triad from its root?",
+      "options": [
+        "0, 3, 6",
+        "0, 4, 8",
+        "0, 4, 7"
+      ],
+      "answer": 2,
+      "explanation": "A major third is four semitones and a perfect fifth is seven."
+    },
+    {
+      "prompt": "Which notes form D minor?",
+      "options": [
+        "D F A",
+        "D F♯ A",
+        "D F A♭"
+      ],
+      "answer": 0,
+      "explanation": "D to F is a minor third, and D to A is a perfect fifth."
+    },
+    {
+      "prompt": "Which notes form G major?",
+      "options": [
+        "G B♭ D",
+        "G B D",
+        "G B D♯"
+      ],
+      "answer": 1,
+      "explanation": "G major uses B natural for its major third."
+    },
+    {
+      "prompt": "You play C E G C. Has the extra C created a different chord type?",
+      "options": [
+        "Yes, a minor chord",
+        "Yes, an augmented chord",
+        "No, it doubles a note of C major"
+      ],
+      "answer": 2,
+      "explanation": "Doubling a chord tone in another octave keeps the same basic chord identity."
+    },
+    {
+      "prompt": "In the chord E G C, what is the root?",
+      "options": [
+        "C",
+        "E",
+        "G"
+      ],
+      "answer": 0,
+      "explanation": "Those are the notes of C major. The root and the lowest note can differ."
+    }
+  ],
+  "diatonic-chords": [
+    {
+      "prompt": "What does diatonic mean here?",
+      "options": [
+        "Using notes from the scale being discussed",
+        "Using only loud notes",
+        "Using exactly three instruments"
+      ],
+      "answer": 0,
+      "explanation": "Diatonic describes a relationship to a particular scale."
+    },
+    {
+      "prompt": "Which chord is ii in C major?",
+      "options": [
+        "D major",
+        "D minor",
+        "E minor"
+      ],
+      "answer": 1,
+      "explanation": "Starting on D and taking alternate C-major scale notes gives D F A."
+    },
+    {
+      "prompt": "Which notes form vii° in C major?",
+      "options": [
+        "B D♯ F♯",
+        "B D F♯",
+        "B D F"
+      ],
+      "answer": 2,
+      "explanation": "B D F forms the diminished triad built on degree seven."
+    },
+    {
+      "prompt": "Which chord is vi in C major?",
+      "options": [
+        "A minor",
+        "A major",
+        "F major"
+      ],
+      "answer": 0,
+      "explanation": "The sixth scale degree is A, and A C E is minor."
+    },
+    {
+      "prompt": "What does an uppercase Roman numeral usually show?",
+      "options": [
+        "A higher octave",
+        "A major chord",
+        "A louder chord"
+      ],
+      "answer": 1,
+      "explanation": "In this notation, uppercase indicates major chord quality."
+    },
+    {
+      "prompt": "What does the ° symbol mean in vii°?",
+      "options": [
+        "Augmented",
+        "Seventh chord",
+        "Diminished"
+      ],
+      "answer": 2,
+      "explanation": "The small circle identifies diminished quality."
+    },
+    {
+      "prompt": "Which progression is I–V–vi–IV in C major?",
+      "options": [
+        "C–G–Am–F",
+        "C–F–Am–G",
+        "Am–G–F–C"
+      ],
+      "answer": 0,
+      "explanation": "The roots are scale degrees 1, 5, 6, and 4, with the listed major/minor qualities."
+    },
+    {
+      "prompt": "Transpose I–V–vi–IV to D major. Which result is correct?",
+      "options": [
+        "D–A–B–G",
+        "D–A–Bm–G",
+        "D–G–Bm–A"
+      ],
+      "answer": 1,
+      "explanation": "D is I, A is V, B minor is vi, and G is IV."
+    },
+    {
+      "prompt": "Which is the major-key triad pattern?",
+      "options": [
+        "I ii III IV v vi VII",
+        "i ii° III iv v VI VII",
+        "I ii iii IV V vi vii°"
+      ],
+      "answer": 2,
+      "explanation": "Building every-other-note triads from a major scale gives this quality pattern."
+    },
+    {
+      "prompt": "Why is the chord on D minor in C major?",
+      "options": [
+        "Its third is F, three semitones above D",
+        "All chords on D are minor",
+        "Its root is a white piano key"
+      ],
+      "answer": 0,
+      "explanation": "Chord quality comes from its intervals; D can also be the root of a major chord in another context."
+    }
+  ],
+  "progressions-cadences": [
+    {
+      "prompt": "What is a chord progression?",
+      "options": [
+        "An ordered series of chords",
+        "A list of instrument names",
+        "One note becoming louder"
+      ],
+      "answer": 0,
+      "explanation": "A progression describes how chords follow one another."
+    },
+    {
+      "prompt": "Which chord is the dominant, V, in C major?",
+      "options": [
+        "F",
+        "G",
+        "Am"
+      ],
+      "answer": 1,
+      "explanation": "The dominant is built on the fifth scale degree, G."
+    },
+    {
+      "prompt": "Which movement is V–I in C major?",
+      "options": [
+        "F–C",
+        "G–Am",
+        "G–C"
+      ],
+      "answer": 2,
+      "explanation": "G major is V and C major is I."
+    },
+    {
+      "prompt": "Which is a common ii–V–I progression in C major?",
+      "options": [
+        "Dm–G–C",
+        "D–F–C",
+        "Em–G–C"
+      ],
+      "answer": 0,
+      "explanation": "D minor often prepares G, which then moves to C."
+    },
+    {
+      "prompt": "A phrase ends on V. What is this commonly called?",
+      "options": [
+        "Plagal cadence",
+        "Half cadence",
+        "Deceptive cadence"
+      ],
+      "answer": 1,
+      "explanation": "A half cadence ends on the dominant."
+    },
+    {
+      "prompt": "Which is a plagal cadence in C major?",
+      "options": [
+        "G–C",
+        "G–Am",
+        "F–C"
+      ],
+      "answer": 2,
+      "explanation": "Plagal movement is IV–I, here F–C."
+    },
+    {
+      "prompt": "Which movement is commonly called deceptive in C major?",
+      "options": [
+        "G–Am",
+        "F–C",
+        "Dm–G"
+      ],
+      "answer": 0,
+      "explanation": "V–vi redirects an expected move to the tonic."
+    },
+    {
+      "prompt": "In a G–C change, where does B often move?",
+      "options": [
+        "To F♯",
+        "To C",
+        "To B♭"
+      ],
+      "answer": 1,
+      "explanation": "B lies a half step below C, creating a common leading-note movement."
+    },
+    {
+      "prompt": "Does every G–C pair in a song count as a cadence?",
+      "options": [
+        "Yes, always",
+        "Only if it is loud",
+        "No; a cadence functions as a phrase ending"
+      ],
+      "answer": 2,
+      "explanation": "Placement, rhythm, melody, and bass help determine whether a chord movement creates an ending."
+    },
+    {
+      "prompt": "What do chord functions describe?",
+      "options": [
+        "Common roles in a musical context",
+        "A rule that every song must follow",
+        "The number of notes in an instrument"
+      ],
+      "answer": 0,
+      "explanation": "Functions describe tendencies; styles and contexts can use different harmonic patterns."
+    }
+  ],
+  "inversions-voice-leading": [
+    {
+      "prompt": "Which C-major arrangement is in root position?",
+      "options": [
+        "C E G, with C lowest",
+        "E G C, with E lowest",
+        "G C E, with G lowest"
+      ],
+      "answer": 0,
+      "explanation": "Root position has the chord root in the bass."
+    },
+    {
+      "prompt": "Which note is lowest in first-inversion C major?",
+      "options": [
+        "G",
+        "E",
+        "C"
+      ],
+      "answer": 1,
+      "explanation": "First inversion places the third of the chord in the bass."
+    },
+    {
+      "prompt": "Which note is lowest in second-inversion C major?",
+      "options": [
+        "C",
+        "E",
+        "G"
+      ],
+      "answer": 2,
+      "explanation": "Second inversion places the fifth in the bass."
+    },
+    {
+      "prompt": "What does C/E mean?",
+      "options": [
+        "A C chord with E in the bass",
+        "A C chord followed by an E chord",
+        "Only the notes C and E"
+      ],
+      "answer": 0,
+      "explanation": "The slash names a particular bass note beneath the chord."
+    },
+    {
+      "prompt": "Must every slash chord be an inversion?",
+      "options": [
+        "Yes",
+        "No; the bass may not be a chord tone",
+        "Only in major keys"
+      ],
+      "answer": 1,
+      "explanation": "An inversion requires the bass to be a chord tone; slash notation allows other bass notes too."
+    },
+    {
+      "prompt": "What is voicing?",
+      "options": [
+        "Choosing how loudly to sing",
+        "Changing a song title",
+        "Arranging chord notes across registers or instruments"
+      ],
+      "answer": 2,
+      "explanation": "Voicing includes note spacing, octave placement, and doubling."
+    },
+    {
+      "prompt": "What is voice leading?",
+      "options": [
+        "How individual parts move between chords",
+        "Which instrument has the loudest sound",
+        "A requirement to use a singer"
+      ],
+      "answer": 0,
+      "explanation": "A voice can be an instrumental part or one note in a chord texture."
+    },
+    {
+      "prompt": "C4 E4 G4 changes to C4 E4 A4. Which note moves?",
+      "options": [
+        "C4",
+        "G4",
+        "E4"
+      ],
+      "answer": 1,
+      "explanation": "C4 and E4 stay; G4 moves up to A4."
+    },
+    {
+      "prompt": "What chord is C4 E4 A4, with C4 lowest?",
+      "options": [
+        "C major",
+        "A major",
+        "A minor in first inversion"
+      ],
+      "answer": 2,
+      "explanation": "A C E spells A minor, and its third C is in the bass."
+    },
+    {
+      "prompt": "Which statement about chord movement is accurate?",
+      "options": [
+        "Small steps often sound smooth, but leaps can be useful too",
+        "Every note must move to the nearest possible note",
+        "Leaps always make the harmony wrong"
+      ],
+      "answer": 0,
+      "explanation": "Smooth voice leading is one choice; larger movements can create a different musical effect."
+    }
+  ],
+  "chord-numbers": [
+    {
+      "prompt": "Which notes belong to Cmaj7?",
+      "options": [
+        "C E G B",
+        "C E G B♭",
+        "C E♭ G B♭"
+      ],
+      "answer": 0,
+      "explanation": "Cmaj7 combines a C-major triad with a major seventh, B."
+    },
+    {
+      "prompt": "Which note distinguishes C7 from Cmaj7?",
+      "options": [
+        "E versus E♭",
+        "B♭ versus B",
+        "G versus G♯"
+      ],
+      "answer": 1,
+      "explanation": "C7 uses B♭; Cmaj7 uses B natural."
+    },
+    {
+      "prompt": "Which notes belong to Cm7?",
+      "options": [
+        "C E G B♭",
+        "C E♭ G B",
+        "C E♭ G B♭"
+      ],
+      "answer": 2,
+      "explanation": "Cm7 uses a minor third E♭ and a minor seventh B♭."
+    },
+    {
+      "prompt": "Which note is the ninth above C?",
+      "options": [
+        "D",
+        "F",
+        "A"
+      ],
+      "answer": 0,
+      "explanation": "The ninth corresponds to the second scale degree an octave higher."
+    },
+    {
+      "prompt": "What does Cadd9 imply?",
+      "options": [
+        "Replace E with D",
+        "Add D to C major without implying a seventh",
+        "Add both B♭ and D"
+      ],
+      "answer": 1,
+      "explanation": "Add9 keeps the triad and adds the ninth; a seventh is not implied."
+    },
+    {
+      "prompt": "Which notes form Csus4?",
+      "options": [
+        "C E F",
+        "C D G",
+        "C F G"
+      ],
+      "answer": 2,
+      "explanation": "Sus4 replaces the third E with the fourth F."
+    },
+    {
+      "prompt": "Which notes form Csus2?",
+      "options": [
+        "C D G",
+        "C E D",
+        "C F G"
+      ],
+      "answer": 0,
+      "explanation": "Sus2 replaces the third with the second."
+    },
+    {
+      "prompt": "What does C9 normally include that Cadd9 does not imply?",
+      "options": [
+        "A second root",
+        "B♭, the minor seventh",
+        "F♯, a raised fourth"
+      ],
+      "answer": 1,
+      "explanation": "A plain ninth chord normally extends a dominant seventh chord."
+    },
+    {
+      "prompt": "Which note corresponds to the eleventh above C?",
+      "options": [
+        "D",
+        "A",
+        "F"
+      ],
+      "answer": 2,
+      "explanation": "The eleventh corresponds to the fourth, F, in a higher octave."
+    },
+    {
+      "prompt": "Must a suspended chord immediately resolve to a major or minor triad?",
+      "options": [
+        "No; it may remain suspended",
+        "Yes, every time",
+        "Only if it has three notes"
+      ],
+      "answer": 0,
+      "explanation": "Suspended describes the notes; it does not require one next chord."
+    }
+  ],
+  "modes-and-small-scales": [
+    {
+      "prompt": "What makes a passage in D Dorian more than simply C-major notes beginning on D?",
+      "options": [
+        "D acts as its tonic",
+        "It has to be louder",
+        "Every note must be D"
+      ],
+      "answer": 0,
+      "explanation": "The same note collection can have different centers, established by the musical context."
+    },
+    {
+      "prompt": "Which degree is raised in Lydian compared with same-root major?",
+      "options": [
+        "Third",
+        "Fourth",
+        "Seventh"
+      ],
+      "answer": 1,
+      "explanation": "Lydian has a raised fourth, such as F♯ in C Lydian."
+    },
+    {
+      "prompt": "Which degree is lowered in Mixolydian compared with major?",
+      "options": [
+        "Second",
+        "Sixth",
+        "Seventh"
+      ],
+      "answer": 2,
+      "explanation": "Mixolydian differs from major by its lowered seventh."
+    },
+    {
+      "prompt": "Which mode matches the natural minor scale?",
+      "options": [
+        "Aeolian",
+        "Ionian",
+        "Lydian"
+      ],
+      "answer": 0,
+      "explanation": "Aeolian has lowered degrees 3, 6, and 7 relative to major."
+    },
+    {
+      "prompt": "What does pentatonic mean?",
+      "options": [
+        "Seven notes per octave",
+        "Five notes per octave",
+        "Twelve notes per octave"
+      ],
+      "answer": 1,
+      "explanation": "Penta means five; a pentatonic scale contains five pitch classes per octave."
+    },
+    {
+      "prompt": "Which notes form C major pentatonic?",
+      "options": [
+        "C D E F G",
+        "C E F G B",
+        "C D E G A"
+      ],
+      "answer": 2,
+      "explanation": "Major pentatonic uses major-scale degrees 1, 2, 3, 5, and 6."
+    },
+    {
+      "prompt": "Which notes form A minor pentatonic?",
+      "options": [
+        "A C D E G",
+        "A B C E F",
+        "A C D F G"
+      ],
+      "answer": 0,
+      "explanation": "Minor pentatonic uses degrees 1, lowered 3, 4, 5, and lowered 7 relative to major."
+    },
+    {
+      "prompt": "Which note is added to A minor pentatonic to make a common minor blues scale?",
+      "options": [
+        "F♯",
+        "E♭",
+        "B"
+      ],
+      "answer": 1,
+      "explanation": "E♭ adds the lowered fifth between D and E."
+    },
+    {
+      "prompt": "Which mode has a lowered fifth compared with same-root major?",
+      "options": [
+        "Dorian",
+        "Mixolydian",
+        "Locrian"
+      ],
+      "answer": 2,
+      "explanation": "Locrian lowers degrees 2, 3, 5, 6, and 7."
+    },
+    {
+      "prompt": "Does the six-note minor blues scale explain all blues music?",
+      "options": [
+        "No; rhythm, bends, slides, and context also matter",
+        "Yes; all blues uses only those six notes",
+        "Yes, if played on piano"
+      ],
+      "answer": 0,
+      "explanation": "Blues practice includes expressive pitch and timing choices beyond a fixed scale."
+    }
+  ],
+  "outside-the-key": [
+    {
+      "prompt": "In a C-major passage, what makes C♯ a chromatic note?",
+      "options": [
+        "It lies outside the C-major scale",
+        "It is played on a keyboard",
+        "It lasts longer than C"
+      ],
+      "answer": 0,
+      "explanation": "Chromatic here means outside the scale currently being used."
+    },
+    {
+      "prompt": "How many pitch classes are in the Western chromatic scale?",
+      "options": [
+        "Seven",
+        "Twelve",
+        "Five"
+      ],
+      "answer": 1,
+      "explanation": "It includes all twelve semitone positions within an octave."
+    },
+    {
+      "prompt": "Which two notes share a pitch class?",
+      "options": [
+        "C4 and D4",
+        "C4 and C♯4",
+        "C4 and C5"
+      ],
+      "answer": 2,
+      "explanation": "Pitch class groups the same note name and accidental across octaves."
+    },
+    {
+      "prompt": "In C major, F minor can be borrowed from which parallel key?",
+      "options": [
+        "C minor",
+        "A minor",
+        "G major"
+      ],
+      "answer": 0,
+      "explanation": "C minor contains F A♭ C, the notes of F minor."
+    },
+    {
+      "prompt": "Which note changes between F major and F minor?",
+      "options": [
+        "F",
+        "A becomes A♭",
+        "C becomes C♭"
+      ],
+      "answer": 1,
+      "explanation": "The root and fifth stay; the third lowers by one semitone."
+    },
+    {
+      "prompt": "In C major, which chord is V of V?",
+      "options": [
+        "F major",
+        "A minor",
+        "D7"
+      ],
+      "answer": 2,
+      "explanation": "G is V of C, and D7 is the dominant seventh of G."
+    },
+    {
+      "prompt": "Which altered note in D7 helps point toward G?",
+      "options": [
+        "F♯",
+        "A♭",
+        "C♯"
+      ],
+      "answer": 0,
+      "explanation": "F♯ sits a half step below G, giving D7 a leading note toward G."
+    },
+    {
+      "prompt": "What is tonicization?",
+      "options": [
+        "A lasting tempo change",
+        "A brief focus on another chord as a temporary tonic",
+        "Removing all outside notes"
+      ],
+      "answer": 1,
+      "explanation": "Tonicization briefly emphasizes a destination without necessarily establishing a lasting new key."
+    },
+    {
+      "prompt": "What does modulation mean in this harmony lesson?",
+      "options": [
+        "Making a single note louder",
+        "Using any one accidental",
+        "Establishing a new key for a passage"
+      ],
+      "answer": 2,
+      "explanation": "A new center becomes established through musical context, rather than one isolated outside note."
+    },
+    {
+      "prompt": "Does C–C♯–D prove that a C-major song changed keys?",
+      "options": [
+        "No; C♯ can be a passing note",
+        "Yes, any accidental changes the key",
+        "Yes, because the notes rise"
+      ],
+      "answer": 0,
+      "explanation": "A passing chromatic note can connect scale notes while the tonic remains C."
+    }
+  ]
+}
