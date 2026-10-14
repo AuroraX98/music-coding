@@ -33,6 +33,7 @@ export class AudioEngine {
   private reservedSounds=new Set<string>();
   private instrumentLoads=new Map<string,Promise<void>>();
   private instrumentRetries=new Map<string,number>();
+  private instrumentPreviewLevels=new Map<string,{note:number;gain:number}[]>();
   private kitPreviewGeneration=0;
   private kitPreviewTimers:ReturnType<typeof setTimeout>[]=[];
   private active?:Compilation;
@@ -149,7 +150,15 @@ export class AudioEngine {
       const retry=this.instrumentRetries.get(id)??0;
       const mapping=Object.fromEntries(Object.entries(instrument.samples).map(([note,url])=>[note,retry?`${url}?retry=${retry}`:url]));
       // Strudel caches rejected loads too. A fresh URL lets a recovered connection retry.
-      pending=(async()=>{await S.samples({[id]:mapping});await Promise.all(Object.values(mapping).map(url=>S.loadBuffer(url,this.context,instrument.name)));})().catch(()=>{this.instrumentLoads.delete(id);this.instrumentRetries.set(id,retry+1);throw new Error(`Could not load ${instrument.name}. Check your connection and try again.`);});
+      pending=(async()=>{await S.samples({[id]:mapping});const levels=await Promise.all(Object.entries(mapping).map(async([note,url])=>{
+        const buffer:AudioBuffer=await S.loadBuffer(url,this.context,instrument.name);
+        let peak=0,sum=0,count=0;
+        // Measure the start heard in a piano audition, rather than a long silent tail.
+        const frames=Math.min(buffer.length,Math.ceil(buffer.sampleRate));
+        for(let channel=0;channel<buffer.numberOfChannels;channel++){const data=buffer.getChannelData(channel);for(let i=0;i<frames;i++){const sample=data[i];peak=Math.max(peak,Math.abs(sample));sum+=sample*sample;count++;}}
+        const rms=Math.sqrt(sum/Math.max(1,count));
+        return {note:S.noteToMidi(note),gain:peak>.00001?Math.min(128,.45/peak,.1/Math.max(rms,.00001)):0};
+      }));this.instrumentPreviewLevels.set(id,levels);})().catch(()=>{this.instrumentLoads.delete(id);this.instrumentRetries.set(id,retry+1);throw new Error(`Could not load ${instrument.name}. Check your connection and try again.`);});
       this.instrumentLoads.set(id,pending);
     }
     await pending;
@@ -431,19 +440,24 @@ export class AudioEngine {
     }
   }
 
-  async previewPreset(preset:SoundPreset):Promise<void>{
+  async previewPreset(preset:SoundPreset,pianoVolume?:number):Promise<void>{
     await this.initialize();await this.context!.resume();
     const note=preset.kind==='bass'?'C2':preset.kind==='pad'?'C4':'C4';
-    const values={...this.presetSettings(preset),note:preset.advanced?.note??note,orbit:32};
+    const values:Record<string,any>={...this.presetSettings(preset),note:preset.advanced?.note??note,orbit:32};
+    if(pianoVolume!==undefined)values.gain=Math.min(.9,Number(values.gain??.3)*3)*clamp(pianoVolume);
     if(preset.advanced?.transpose)values.note=S.noteToMidi(values.note)+Number(preset.advanced.transpose);
     await S.superdough(values,this.context!.currentTime+.025,preset.kind==='pad'?1:.3,.5,0);
   }
 
-  async previewInstrument(id:string,note?:string):Promise<void>{
+  async previewInstrument(id:string,note?:string,pianoVolume?:number):Promise<void>{
     if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
     await this.initialize();await this.context!.resume();await this.loadInstrument(id);
     if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
-    await S.superdough({s:id,note:note??BUILTIN_INSTRUMENTS.find(item=>item.id===id)?.previewNote??'C4',gain:.6,attack:.005,release:.15,orbit:32},this.context!.currentTime+.025,.8,.5,0);
+    const pitch=note??BUILTIN_INSTRUMENTS.find(item=>item.id===id)?.previewNote??'C4';
+    const midi=S.noteToMidi(pitch),levels=this.instrumentPreviewLevels.get(id)??[];
+    const nearest=levels.reduce<{note:number;gain:number}|undefined>((best,item)=>!best||Math.abs(item.note-midi)<Math.abs(best.note-midi)?item:best,undefined);
+    const gain=pianoVolume===undefined?.6:(nearest?.gain??.6)*clamp(pianoVolume);
+    await S.superdough({s:id,note:pitch,gain,attack:.005,release:.15,orbit:32},this.context!.currentTime+.025,.8,.5,0);
   }
 
   private cancelKitPreview(){

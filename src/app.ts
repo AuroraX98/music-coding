@@ -189,12 +189,12 @@ function setLoop(){if(loopOn){const a=Number($<HTMLInputElement>('loop-start').v
 function exportTime(seconds:number){const tenths=Math.round(seconds*10),whole=Math.floor(tenths/10);return Math.floor(whole/60)+':'+String(whole%60).padStart(2,'0')+(tenths%10?'.'+tenths%10:'');}
 function renderViewTabs(){const captions:Record<string,string>={'piano roll':'Each block is a note. Higher blocks have a higher pitch.','punchcard':'Each row is a track. Blocks show when its sounds play.','spiral':'Follow the dots as the repeating pattern moves through time.','pitch wheel':'Notes light up around a circle of twelve pitches.','waveform':'See the shape of the sound you are hearing.','spectrum':'See how much low and high sound is in your music.'};$('visual-caption').textContent=captions[selectedView]||'';const views=['piano roll','punchcard','spiral','pitch wheel','waveform','spectrum'];$('view-tabs').innerHTML=views.map(v=>`<button data-view='${v}' aria-pressed='${selectedView===v}' class='${selectedView===v?'active':''}'>${v}</button>`).join('');}
 function refreshStudioPianoSounds(){const all=[...library,...project.presets];const unique=new Map(all.map(p=>[p.id,p]));studioPiano?.setSounds([...BUILTIN_INSTRUMENTS.map(p=>({id:p.id,name:p.name})),...[...unique.values()].map(p=>({id:p.id,name:p.name}))]);}
-async function auditionStudioNote(note:string,soundId:string){
+async function auditionStudioNote(note:string,soundId:string,pianoVolume=.75){
  if(job)throw new Error('Finish or cancel the export before trying piano notes.');
- if(BUILTIN_INSTRUMENTS.some(p=>p.id===soundId)){await engine.previewInstrument(soundId,note);studioAuditions.push({note,until:performance.now()+600});return;}
+ if(BUILTIN_INSTRUMENTS.some(p=>p.id===soundId)){await engine.previewInstrument(soundId,note,pianoVolume);studioAuditions.push({note,until:performance.now()+600});return;}
  const saved=[...project.presets,...library].find(p=>p.id===soundId);
  const preset:SoundPreset=saved?structuredClone(saved):{...structuredClone(DEFAULT_PRESETS[3]),name:'piano-preview',kind:'lead',waveform:'triangle',volume:.3,space:0,length:.3,advanced:{}};
- preset.advanced={...preset.advanced,note};await engine.previewPreset(preset);
+ preset.advanced={...preset.advanced,note};await engine.previewPreset(preset,pianoVolume);
  const names=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'],match=note.match(/^([A-G]#?)(-?\d+)$/)!;
  const pitch=(Number(match[2])+1)*12+names.indexOf(match[1])+Number(preset.advanced.transpose||0),rounded=Math.round(pitch);
  const heard=names[((rounded%12)+12)%12]+(Math.floor(rounded/12)-1);
