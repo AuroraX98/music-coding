@@ -1,0 +1,295 @@
+{
+  "library": "Versilian Community Sample Library",
+  "creator": "Versilian Studios LLC and contributors",
+  "repository": "https://github.com/sgossner/VCSL",
+  "commit": "c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e",
+  "license": "CC0-1.0",
+  "modifications": "Original WAV bytes; files renamed locally. Only selected recordings are included.",
+  "totalBytes": 22782024,
+  "instruments": [
+    {
+      "id": "vcsl_piano",
+      "name": "Soft grand piano",
+      "description": "A gentle recorded piano. Try it for chords and melodies.",
+      "samples": [
+        {
+          "filenameNote": "C2",
+          "file": "piano/C2.wav",
+          "sourcePath": "Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_C2_v1_rr1_Player.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Zithers/Grand%20Piano%2C%20Kawai/Sustains/GPiano_sus_C2_v1_rr1_Player.wav",
+          "bytes": 2939740,
+          "sha256": "eba9adfb3977605a494830081d4e9e4ff0a4efd017439fe402a208aca9f11d7a",
+          "rootNote": "C3"
+        },
+        {
+          "filenameNote": "C3",
+          "file": "piano/C3.wav",
+          "sourcePath": "Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_C3_v1_rr1_Player.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Zithers/Grand%20Piano%2C%20Kawai/Sustains/GPiano_sus_C3_v1_rr1_Player.wav",
+          "bytes": 2374332,
+          "sha256": "eb52431464cc160cb7c3576d5087b6cc67326fd903b620088c0874f6bcff4a8e",
+          "rootNote": "C4"
+        },
+        {
+          "filenameNote": "F#3",
+          "file": "piano/Fs3.wav",
+          "sourcePath": "Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_F#3_v1_rr1_Player.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Zithers/Grand%20Piano%2C%20Kawai/Sustains/GPiano_sus_F%233_v1_rr1_Player.wav",
+          "bytes": 1816040,
+          "sha256": "087e5826a7868cc3c923e6628869cc516ad690a4cbe69a8b4019be91f14b3a9b",
+          "rootNote": "F#4"
+        },
+        {
+          "filenameNote": "C4",
+          "file": "piano/C4.wav",
+          "sourcePath": "Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_C4_v1_rr1_Player.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Zithers/Grand%20Piano%2C%20Kawai/Sustains/GPiano_sus_C4_v1_rr1_Player.wav",
+          "bytes": 1768284,
+          "sha256": "f921d4737ee847ecb55ce251a94e1841069b70e206b00342676954992ea7d0dc",
+          "rootNote": "C5"
+        }
+      ]
+    },
+    {
+      "id": "vcsl_harp",
+      "name": "Folk harp",
+      "description": "Plucked strings with a clear ringing sound. Try notes one after another.",
+      "samples": [
+        {
+          "filenameNote": "C3",
+          "file": "harp/C3.wav",
+          "sourcePath": "Chordophones/Composite Chordophones/Folk Harp/EWHarp_Normal_C3_v2_RR1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Composite%20Chordophones/Folk%20Harp/EWHarp_Normal_C3_v2_RR1.wav",
+          "bytes": 1382798,
+          "sha256": "bfc5a2cae93793ac46bfe50c1b71d1e64e29eba34e71164c47c29e67488abd96",
+          "rootNote": "C4"
+        },
+        {
+          "filenameNote": "F#3",
+          "file": "harp/Fs3.wav",
+          "sourcePath": "Chordophones/Composite Chordophones/Folk Harp/EWHarp_Normal_F#3_v2_RR1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Composite%20Chordophones/Folk%20Harp/EWHarp_Normal_F%233_v2_RR1.wav",
+          "bytes": 1166902,
+          "sha256": "4a6ed3a36a0dcefb0ddd1b8b9543a7034d0bb9b6cc01fdebcda0f010cdd4733e",
+          "rootNote": "F#4"
+        },
+        {
+          "filenameNote": "C4",
+          "file": "harp/C4.wav",
+          "sourcePath": "Chordophones/Composite Chordophones/Folk Harp/EWHarp_Normal_C4_v2_RR1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Composite%20Chordophones/Folk%20Harp/EWHarp_Normal_C4_v2_RR1.wav",
+          "bytes": 775134,
+          "sha256": "79774644727f61bd535e4b49f7eae0c31b0cac4d2714d33d8f6cd84e5db081d3",
+          "rootNote": "C5"
+        },
+        {
+          "filenameNote": "F#4",
+          "file": "harp/Fs4.wav",
+          "sourcePath": "Chordophones/Composite Chordophones/Folk Harp/EWHarp_Normal_F#4_v2_RR1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Composite%20Chordophones/Folk%20Harp/EWHarp_Normal_F%234_v2_RR1.wav",
+          "bytes": 517414,
+          "sha256": "fe09d1ff1d6da6a77904e84b2edc9e17c80bdbb46e3648ed19eb63b745adf14d",
+          "rootNote": "F#5"
+        }
+      ]
+    },
+    {
+      "id": "vcsl_marimba",
+      "name": "Marimba",
+      "description": "Wooden bars hit with mallets. Try a gentle repeating tune.",
+      "samples": [
+        {
+          "filenameNote": "F3",
+          "file": "marimba/F3.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_med_01.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Marimba/Marimba_hit_Outrigger_F3_med_01.wav",
+          "bytes": 1382924,
+          "sha256": "a493b31ac2e588ed961c522a66b790acc584b59a08918bd7193d6e6fa8df4756",
+          "rootNote": "F4"
+        },
+        {
+          "filenameNote": "C4",
+          "file": "marimba/C4.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_C4_med_01.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Marimba/Marimba_hit_Outrigger_C4_med_01.wav",
+          "bytes": 655244,
+          "sha256": "3e88c006eef05e8f7891f8f6027042006199a4ec3b53a0ad7308f9782a52d4df",
+          "rootNote": "C5"
+        },
+        {
+          "filenameNote": "G4",
+          "file": "marimba/G4.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G4_med_01.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Marimba/Marimba_hit_Outrigger_G4_med_01.wav",
+          "bytes": 580262,
+          "sha256": "278e738d8214cdc192e63c3350b1e464a72c86dc135ddf0c5ce035569be66c71",
+          "rootNote": "G5"
+        },
+        {
+          "filenameNote": "B4",
+          "file": "marimba/B4.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_B4_med_01.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Marimba/Marimba_hit_Outrigger_B4_med_01.wav",
+          "bytes": 433802,
+          "sha256": "d676b76e3850d85333c85b1fc77d20f4524ff2e9e6f03551f52c5b22fbe8ab30",
+          "rootNote": "B5"
+        }
+      ]
+    },
+    {
+      "id": "vcsl_vibraphone",
+      "name": "Vibraphone",
+      "description": "Soft mallets tap metal bars for a warm ringing sound. Try slow chords.",
+      "samples": [
+        {
+          "filenameNote": "C3",
+          "file": "vibraphone/C3.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_C3_v1_rr2_Main.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Vibraphone/Soft%20Mallets/Vibes_soft_C3_v1_rr2_Main.wav",
+          "bytes": 1815048,
+          "sha256": "1dda9a4c3205c365345d66dcb68c8e09c0dca76a310b8fe8108e43c7e8c1cd0a",
+          "rootNote": "C4"
+        },
+        {
+          "filenameNote": "F4",
+          "file": "vibraphone/F4.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_F4_v1_rr1_Main.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Vibraphone/Soft%20Mallets/Vibes_soft_F4_v1_rr1_Main.wav",
+          "bytes": 1368508,
+          "sha256": "95b7d6eeb71d77cce607c0c52b0a6dfd23d0eeedc2eb393fb9a6c5a5768f4aa5",
+          "rootNote": "F5"
+        },
+        {
+          "filenameNote": "C5",
+          "file": "vibraphone/C5.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_C5_v1_rr1_Main.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Vibraphone/Soft%20Mallets/Vibes_soft_C5_v1_rr1_Main.wav",
+          "bytes": 641932,
+          "sha256": "be995c1164dcbbcf83688d095864a4abd0feaa68b71d1d2e78c35f62461fc03b",
+          "rootNote": "C6"
+        }
+      ]
+    },
+    {
+      "id": "vcsl_glockenspiel",
+      "name": "Glockenspiel",
+      "description": "Metal bars with a bright bell sound. Try high sparkling notes.",
+      "samples": [
+        {
+          "filenameNote": "C5",
+          "file": "glockenspiel/C5.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Glockenspiel/glock_soft_C5_02.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Glockenspiel/glock_soft_C5_02.wav",
+          "bytes": 709206,
+          "sha256": "4fa149e6f224557df5fab98ad660a8f192bc6fbf2556077dd1089509bf4424e2",
+          "rootNote": "C6"
+        },
+        {
+          "filenameNote": "G5",
+          "file": "glockenspiel/G5.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Glockenspiel/glock_soft_G5_01.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Glockenspiel/glock_soft_G5_01.wav",
+          "bytes": 706962,
+          "sha256": "73f6a6de89291d0292b303d641444de5e6e1561881f09f6cf20d77f245f7bec3",
+          "rootNote": "G6"
+        },
+        {
+          "filenameNote": "C6",
+          "file": "glockenspiel/C6.wav",
+          "sourcePath": "Idiophones/Struck Idiophones/Glockenspiel/glock_soft_C6_01.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Glockenspiel/glock_soft_C6_01.wav",
+          "bytes": 706962,
+          "sha256": "e0fdb3a134ee828530c654db7f94b04f94272984938875b0d5535ec40c658324",
+          "rootNote": "C7"
+        }
+      ]
+    },
+    {
+      "id": "vcsl_recorder",
+      "name": "Short recorder",
+      "description": "A breathy wooden flute sound played in short bursts. Long notes will still sound short.",
+      "samples": [
+        {
+          "filenameNote": "C4",
+          "file": "recorder/C4.wav",
+          "sourcePath": "Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/Staccato/AltRecorder_Stac_C4_rr1_Main.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Edge-blown%20Aerophones/Baroque%20Alto%20Recorder/Staccato/AltRecorder_Stac_C4_rr1_Main.wav",
+          "bytes": 82104,
+          "sha256": "34c08414dc6f02eb37f97fbbaf9be1a92c27643ccf51ba20c8eabe8cd1357625",
+          "rootNote": "C5"
+        },
+        {
+          "filenameNote": "F#4",
+          "file": "recorder/Fs4.wav",
+          "sourcePath": "Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/Staccato/AltRecorder_Stac_F#4_rr1_Main.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Edge-blown%20Aerophones/Baroque%20Alto%20Recorder/Staccato/AltRecorder_Stac_F%234_rr1_Main.wav",
+          "bytes": 81528,
+          "sha256": "1cf25b3328878d3b2dfb14ce975dd914af9438ea96158fd88746543f88efa527",
+          "rootNote": "F#5"
+        },
+        {
+          "filenameNote": "C5",
+          "file": "recorder/C5.wav",
+          "sourcePath": "Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/Staccato/AltRecorder_Stac_C5_rr1_Main.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Edge-blown%20Aerophones/Baroque%20Alto%20Recorder/Staccato/AltRecorder_Stac_C5_rr1_Main.wav",
+          "bytes": 94044,
+          "sha256": "7f52cfd817d81285539eed7b1cb25121373dd2794707f987cecb8cef90bda0df",
+          "rootNote": "C6"
+        }
+      ]
+    },
+    {
+      "id": "vcsl_sax",
+      "name": "Short tenor sax",
+      "description": "A rich reed sound played in short bursts. Long notes will still sound short.",
+      "samples": [
+        {
+          "filenameNote": "C2",
+          "file": "sax/C2.wav",
+          "sourcePath": "Aerophones/Reed Aerophones/Tenor Saxophone/Staccato/BrettTenor_Staccato_Main_C2_vl2_rr1.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Reed%20Aerophones/Tenor%20Saxophone/Staccato/BrettTenor_Staccato_Main_C2_vl2_rr1.wav",
+          "bytes": 159206,
+          "sha256": "40b8e77a074fc9ea524837da05e554d01b27f739f1af565f7a81d26d153bc57b",
+          "rootNote": "C3"
+        },
+        {
+          "filenameNote": "F#2",
+          "file": "sax/Fs2.wav",
+          "sourcePath": "Aerophones/Reed Aerophones/Tenor Saxophone/Staccato/BrettTenor_Staccato_Main_F#2_vl2_rr7.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Reed%20Aerophones/Tenor%20Saxophone/Staccato/BrettTenor_Staccato_Main_F%232_vl2_rr7.wav",
+          "bytes": 146450,
+          "sha256": "02c63d6648a782c8e4ea44efde4e4ba1a104d98005ed8bf24dd726230026840f",
+          "rootNote": "F#3"
+        },
+        {
+          "filenameNote": "C3",
+          "file": "sax/C3.wav",
+          "sourcePath": "Aerophones/Reed Aerophones/Tenor Saxophone/Staccato/BrettTenor_Staccato_Main_C3_vl2_rr4.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Reed%20Aerophones/Tenor%20Saxophone/Staccato/BrettTenor_Staccato_Main_C3_vl2_rr4.wav",
+          "bytes": 152162,
+          "sha256": "0984039ad9542a4feee2ae34cf817042e7e2aa17330b1e7d595a513535e4d62d",
+          "rootNote": "C4"
+        },
+        {
+          "filenameNote": "F#3",
+          "file": "sax/Fs3.wav",
+          "sourcePath": "Aerophones/Reed Aerophones/Tenor Saxophone/Staccato/BrettTenor_Staccato_Main_F#3_vl2_rr6.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Reed%20Aerophones/Tenor%20Saxophone/Staccato/BrettTenor_Staccato_Main_F%233_vl2_rr6.wav",
+          "bytes": 167876,
+          "sha256": "f73dcc3e8f828ddf8e846a44b71a2380b8cea0d29d40c5de86ba77948f3d703b",
+          "rootNote": "F#4"
+        },
+        {
+          "filenameNote": "C4",
+          "file": "sax/C4.wav",
+          "sourcePath": "Aerophones/Reed Aerophones/Tenor Saxophone/Staccato/BrettTenor_Staccato_Main_C4_vl2_rr3.wav",
+          "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Aerophones/Reed%20Aerophones/Tenor%20Saxophone/Staccato/BrettTenor_Staccato_Main_C4_vl2_rr3.wav",
+          "bytes": 157160,
+          "sha256": "ac031056028134f678e82661dc25f09df6287c537f74e2f43e7a36051fb7bd35",
+          "rootNote": "C5"
+        }
+      ]
+    }
+  ],
+  "pitchConvention": "Upstream file names use C3 for middle C. App roots use scientific pitch notation (middle C = C4 = MIDI 60). All sample roots below add one octave to the filename. Frequency checks confirm this convention for this subset."
+}

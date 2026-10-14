@@ -20,3 +20,7 @@ The built browser application combines Music Coding code with AGPL components. D
 Preserve the upstream notices, license texts, and applicable source access when redistributing or hosting the application. The app provides a source archive at `/source.zip`; it includes original app code, build instructions, the pinned dependency lockfile, and dependency notices. It does not bundle installed dependencies. Their source references and licenses remain in the dependency notices; the app archive alone should not be represented as replacing all corresponding-source obligations for third-party components.
 
 Read the preserved license texts for their full conditions. Music projects, uploaded recordings, and exported audio retain their own rights and are not relicensed by this repository's MIT notice.
+
+## Included instrument recordings
+
+The curated recordings in public/instruments/ come from the Versilian Community Sample Library (VCSL), published under CC0. They keep their CC0 status and are not relicensed as MIT. That folder preserves the upstream declaration, full CC0 text, and pinned source paths and file hashes.

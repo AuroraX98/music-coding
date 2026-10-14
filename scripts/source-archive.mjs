@@ -23,7 +23,7 @@ async function walk(relative){
   for(const entry of entries){if(entry.isSymbolicLink())continue;const next=path.join(relative,entry.name);if(forbidden.test(next.replaceAll('\\','/')))continue;if(entry.isDirectory())await walk(next);else await add(next);}
 }
 for(const file of topLevel)await add(file);
-for(const dir of ['src','tests','scripts','public/licenses'])await walk(dir);
+for(const dir of ['src','tests','scripts','public/licenses','public/instruments'])await walk(dir);
 await add('public/capture-worklet.js');
 await add('public/favicon.svg');
 files['SOURCE-NOTE.txt']=strToU8('Music Coding source snapshot. Original Music Coding contributions are MIT licensed; see LICENSE-SCOPE.md for exclusions and combined distribution requirements. Third-party software retains its own licenses, including AGPL components. This archive contains application source, tests, build instructions, lockfile, and preserved dependency notices. It contains no browser projects, uploaded recordings, node_modules, distribution build, or verification captures. Nothing runs when the archive is downloaded. Install the pinned dependencies to build; their original sources and licenses are listed in public/licenses/packages.json. Regenerate with node scripts/source-archive.mjs after source changes.\n');

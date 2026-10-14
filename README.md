@@ -98,3 +98,9 @@ Add track to song inserts a complete playable track with every visible setting a
 ## Piano beside the Studio editor
 
 The Studio tab includes a virtual piano and a small labeled piano roll beside the code editor on desktop. Choose Triangle or a saved sound, choose an octave, then click a key or focus it and press Enter or Space. The piano shows the note name, notes you tried, and currently sounding pitches. Auditioning notes does not change your song or stop its playback. Insert note is a separate action that adds the selected note at the existing editor cursor. The trial-note history shows order, not recorded timing.
+
+## Included recorded instruments
+
+Sound Library includes a curated VCSL CC0 starter collection. Listen previews a sound, and Insert example adds a complete editable track. The same instruments are available beside the Studio editor. Several recorded pitches per instrument keep playback more natural across the keyboard. Required recordings load before a song starts or exports; a loading failure shows an error and can be retried. Audio files are hosted with the app, not fetched from a third-party server during playback.
+
+See public/instruments/index.html and its source manifest for credits, exact upstream revision, file hashes, pitch mappings, and CC0 terms. Original instrument WAV files are included in the GitHub repository and deployed app. The source ZIP includes their provenance and license records; the WAV files are kept separately in public/instruments/.

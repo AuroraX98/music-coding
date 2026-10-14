@@ -3,6 +3,7 @@ import * as Strudel from '@strudel/web';
 import type {Compilation,ExportOptions,LiveState,MixOptions,SampleAsset,SoundPreset,Statement,VisualEvent} from './types';
 import {encodeWav,evaluateExpression,secondsAtBar,splitArguments} from './audio-utils';
 import {commands as catalogue} from './catalog';
+import {BUILTIN_INSTRUMENTS} from './instruments';
 const captureUrl=`${import.meta.env.BASE_URL}capture-worklet.js`;
 
 const S=Strudel as Record<string,any>;
@@ -30,6 +31,8 @@ export class AudioEngine {
   private loaded=new Map<string,{blob:Blob;url:string;root?:string}>();
   private presetMap=new Map<string,SoundPreset>();
   private reservedSounds=new Set<string>();
+  private instrumentLoads=new Map<string,Promise<void>>();
+  private instrumentRetries=new Map<string,number>();
   private active?:Compilation;
   private mix=defaultMix();
   private built?:BuiltSong;
@@ -80,6 +83,7 @@ export class AudioEngine {
       }});
       await S.initAudio();
       this.registerOriginalDrums();
+      for(const instrument of BUILTIN_INSTRUMENTS)await S.samples({[instrument.id]:instrument.samples});
       this.reservedSounds=new Set(Object.keys(S.soundMap.get()).map(soundName));
       this.connectMonitor();
       this.ticker=window.setInterval(()=>this.tick(),40);
@@ -135,7 +139,23 @@ export class AudioEngine {
     return controls.queryArc(0,1)[0]?.value??{};
   }
 
-  private async prepareSounds(){
+  private async loadInstrument(id:string):Promise<void>{
+    const instrument=BUILTIN_INSTRUMENTS.find(item=>item.id===id);
+    if(!instrument)throw new Error('This instrument is not available.');
+    let pending=this.instrumentLoads.get(id);
+    if(!pending){
+      const retry=this.instrumentRetries.get(id)??0;
+      const mapping=Object.fromEntries(Object.entries(instrument.samples).map(([note,url])=>[note,retry?`${url}?retry=${retry}`:url]));
+      // Strudel caches rejected loads too. A fresh URL lets a recovered connection retry.
+      pending=(async()=>{await S.samples({[id]:mapping});await Promise.all(Object.values(mapping).map(url=>S.loadBuffer(url,this.context,instrument.name)));})().catch(()=>{this.instrumentLoads.delete(id);this.instrumentRetries.set(id,retry+1);throw new Error(`Could not load ${instrument.name}. Check your connection and try again.`);});
+      this.instrumentLoads.set(id,pending);
+    }
+    await pending;
+  }
+
+  private async prepareSounds(source=''){
+    const names=new Set(source.toLowerCase().match(/[a-z0-9_]+/g)??[]);
+    await Promise.all(BUILTIN_INSTRUMENTS.filter(item=>names.has(item.id)).map(item=>this.loadInstrument(item.id)));
     if(!this.presetMap.size)this.setSounds(this.presets,this.assets);
     const assetNames=new Set<string>();
     for(const asset of this.assets){
@@ -348,7 +368,7 @@ export class AudioEngine {
     const request=++this.playbackGeneration;
     await this.initialize();this.checkPlayback(request);
     await this.context!.resume();this.checkPlayback(request);
-    await this.prepareSounds();this.checkPlayback(request);
+    await this.prepareSounds(compilation.source);this.checkPlayback(request);
     const built=this.build(compilation,mix);
     await this.withPlayback(request,async()=>{
       this.stopPlayback(false);this.active=compilation;this.mix=mix;this.built=built;this.updateMaster();
@@ -368,7 +388,7 @@ export class AudioEngine {
     if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
     const request=++this.playbackGeneration;
     await this.initialize();this.checkPlayback(request);
-    await this.prepareSounds();this.checkPlayback(request);
+    await this.prepareSounds(compilation.source);this.checkPlayback(request);
     if(!this.live.playing){await this.play(compilation,mix);return 1;}
     const built=this.build(compilation,mix);
     return this.withPlayback(request,async()=>{
@@ -416,6 +436,13 @@ export class AudioEngine {
     await S.superdough(values,this.context!.currentTime+.025,preset.kind==='pad'?1:.3,.5,0);
   }
 
+  async previewInstrument(id:string,note='C4'):Promise<void>{
+    if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
+    await this.initialize();await this.context!.resume();await this.loadInstrument(id);
+    if(this.exportRunning)throw new Error('Wait for export to finish or cancel it.');
+    await S.superdough({s:id,note,gain:.6,attack:.005,release:.15,orbit:32},this.context!.currentTime+.025,.8,.5,0);
+  }
+
   getEvents(startCycle:number,endCycle:number):VisualEvent[]{
     if(!this.built||endCycle<=startCycle)return [];
     try{return this.built.visual.queryArc(startCycle,endCycle).filter((hap:any)=>hap.whole&&hap.value.s).map((hap:any)=>{
@@ -448,7 +475,7 @@ export class AudioEngine {
     checkAbort();
     await this.initialize();checkAbort();
     await this.context!.resume();checkAbort();
-    await this.prepareSounds();checkAbort();
+    await this.prepareSounds(compilation.source);checkAbort();
     const key=JSON.stringify({source:compilation.source,presets:this.presets,samples:this.assets.map(a=>[a.id,a.name,a.blob.size,a.rootNote]),master:mix.master,muted:[...mix.muted].sort(),solo:[...mix.solo].sort(),startBar,endBar,tailSeconds});
     const duration=secondsAtBar(compilation,endBar)-secondsAtBar(compilation,startBar-1)+Math.max(0,tailSeconds);
     const previous={active:this.active,mix:structuredClone(this.mix),playing:this.live.playing};
